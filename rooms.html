@@ -85,8 +85,9 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     .sec-sub{color:var(--text2);font-size:.9rem;max-width:500px;margin:0 auto;}
 
     /* ── ROOM CARDS ── */
-    .rooms-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:2rem;}
-    @media(max-width:900px){.rooms-grid{grid-template-columns:1fr;}}
+    .rooms-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2rem;}
+    @media(max-width:1100px){.rooms-grid{grid-template-columns:repeat(2,1fr);}}
+    @media(max-width:700px){.rooms-grid{grid-template-columns:1fr;}}
 
     .room-card{background:var(--card);border:1px solid var(--border);border-radius:6px;overflow:hidden;transition:transform .35s,box-shadow .35s,border-color .35s;display:flex;flex-direction:column;}
     .room-card:hover{transform:translateY(-6px);box-shadow:0 20px 60px rgba(0,0,0,.28);border-color:var(--border2);}
@@ -525,7 +526,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         </div>
 
         <!-- BEACH DELUXE ROOM — featured -->
-        <div class="room-card featured rv rv-d1" data-type="deluxe" style="grid-column:1/-1;max-width:640px;margin:0 auto;width:100%;">
+        <div class="room-card featured rv rv-d1" data-type="deluxe">
           <div class="rm-photo rm-gallery">
             <img src="images/rooms/beach-deluxe/1.webp" class="rm-slide active" alt="Beach Deluxe — Sea view" loading="lazy" decoding="async" width="700" height="467" />
             <img src="images/rooms/beach-deluxe/2.webp" class="rm-slide" alt="Beach Deluxe — Beds" loading="lazy" decoding="async" width="700" height="467" />
