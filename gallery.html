@@ -72,7 +72,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     .tab-btn{padding:1rem 1.6rem;border:none;border-bottom:2px solid transparent;background:none;color:var(--text2);font-size:.78rem;letter-spacing:.1em;text-transform:uppercase;cursor:pointer;transition:all .3s;white-space:nowrap;font-family:'DM Sans',sans-serif;display:flex;align-items:center;gap:.5rem;}
     .tab-btn svg{width:14px;height:14px;opacity:.7;}
     .tab-btn:hover{color:var(--accent);}
-    .tab-btn.active{color:var(--accent);border-bottom-color:var(--accent);}
+    .tab-btn.active{color:#fff;border-bottom-color:#fff;}
+    [data-theme="day"] .tab-btn.active{color:var(--text);border-bottom-color:var(--text);}
     @media(max-width:768px){
       .tab-bar{
         padding:0 !important;
