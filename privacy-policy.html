@@ -389,11 +389,12 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     hamburger.setAttribute('aria-expanded', open);
   });
 
-  /* ── Navbar scroll ── */
-  const nav = document.getElementById('nav');
-  window.addEventListener('scroll', () => {
-    const _m=window.innerWidth<=768;nav.style.padding=window.scrollY>40?(_m?'.5rem 1.5rem':'.5rem 4rem'):(_m?'1rem 1.5rem':'.75rem 4rem');
-  }, { passive: true });
+  /* ── Navbar scroll: hide on down, show on up ── */
+  (function(){
+    var nav=document.getElementById('nav'),lastY=0,ticking=false;
+    function update(){var y=window.scrollY;if(y<120)nav.classList.remove('nav-hidden');else if(y>lastY+6)nav.classList.add('nav-hidden');else if(y<lastY-6)nav.classList.remove('nav-hidden');lastY=y;ticking=false;}
+    window.addEventListener('scroll',function(){if(!ticking){requestAnimationFrame(update);ticking=true;}},{passive:true});
+  })();
 
   /* ── Custom Cursor ── */
   const dot = document.getElementById('cur-dot');

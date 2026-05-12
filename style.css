@@ -36,7 +36,8 @@
 
 
     /* ── NAV ── */
-    #nav{position:fixed;inset:0 0 auto 0;z-index:200;display:flex;align-items:center;justify-content:space-between;padding:.75rem 4rem;background:var(--nav-bg);backdrop-filter:blur(20px) saturate(160%);-webkit-backdrop-filter:blur(20px) saturate(160%);border-bottom:1px solid var(--border);transition:all .4s;}
+    #nav{position:fixed;inset:0 0 auto 0;z-index:200;display:flex;align-items:center;justify-content:space-between;padding:.75rem 4rem;background:var(--nav-bg);backdrop-filter:blur(20px) saturate(160%);-webkit-backdrop-filter:blur(20px) saturate(160%);border-bottom:1px solid var(--border);transition:transform .38s cubic-bezier(.4,0,.2,1),padding .4s ease,background .4s ease,backdrop-filter .4s ease,box-shadow .4s ease;}
+    #nav.nav-hidden{transform:translateY(-100%);}
     .nav-logo{display:flex;align-items:center;gap:.55rem;text-decoration:none;flex-shrink:0;}
     .nav-logo-img{height:44px;width:auto;flex-shrink:0;display:block;}
     [data-theme="day"] .nav-logo-night{display:none;}

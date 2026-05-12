@@ -1601,6 +1601,13 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     });
   });
 
+  /* ── Navbar scroll: hide on down, show on up ── */
+  (function(){
+    var nav=document.getElementById('nav'),lastY=0,ticking=false;
+    function update(){var y=window.scrollY;if(y<120)nav.classList.remove('nav-hidden');else if(y>lastY+6)nav.classList.add('nav-hidden');else if(y<lastY-6)nav.classList.remove('nav-hidden');lastY=y;ticking=false;}
+    window.addEventListener('scroll',function(){if(!ticking){requestAnimationFrame(update);ticking=true;}},{passive:true});
+  })();
+
   /* ── Scroll reveal ── */
   const ro = new IntersectionObserver(entries => {
     entries.forEach(e => {
