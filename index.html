@@ -3502,9 +3502,11 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       </svg>
     </button>
 
-    <div class="bk-eyebrow">Reservations</div>
-    <h2 class="bk-title" id="bkModalTitle">Book Your <em>Stay</em></h2>
-    <p class="bk-sub">Fill in your details and we'll confirm your reservation within 24 hours.</p>
+    <div class="bk-modal-header" id="bkModalHeader">
+      <div class="bk-eyebrow">Reservations</div>
+      <h2 class="bk-title" id="bkModalTitle">Book Your <em>Stay</em></h2>
+      <p class="bk-sub">Fill in your details and we'll confirm your reservation within 24 hours.</p>
+    </div>
 
     <div class="bk-error" id="bkModalError"></div>
 
@@ -3557,11 +3559,12 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <script>
 /* ── Booking Popup Modal ── */
 (function(){
-  var overlay = document.getElementById('bookingModal');
-  var form    = document.getElementById('bkModalForm');
-  var success = document.getElementById('bkModalSuccess');
-  var errBox  = document.getElementById('bkModalError');
-  var dateInp = document.getElementById('bk-checkin');
+  var overlay  = document.getElementById('bookingModal');
+  var form     = document.getElementById('bkModalForm');
+  var success  = document.getElementById('bkModalSuccess');
+  var errBox   = document.getElementById('bkModalError');
+  var header   = document.getElementById('bkModalHeader');
+  var dateInp  = document.getElementById('bk-checkin');
 
   /* Set minimum check-in date to today */
   if(dateInp){
@@ -3595,7 +3598,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   var closeBtn = document.getElementById('bookingModalClose');
   if(closeBtn) closeBtn.addEventListener('click', closeModal);
 
-  /* Close on success "Close" button */
+  /* Close on success "Close" button — restore header + form */
   var sucClose = document.getElementById('bkSuccessClose');
   if(sucClose) sucClose.addEventListener('click', function(){
     closeModal();
@@ -3603,7 +3606,11 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       success.classList.remove('show');
       form.style.display = '';
       form.reset();
+      if(header) header.style.display = '';
       if(errBox) errBox.classList.remove('show');
+      /* Re-enable submit button */
+      var btn = form.querySelector('.bk-btn');
+      if(btn){ btn.textContent = 'Send Reservation Request'; btn.disabled = false; }
     }, 350);
   });
 
@@ -3667,6 +3674,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         console.warn('[Booking] Notification error:', err);
       })
       .finally(function(){
+        if(header) header.style.display = 'none';
         form.style.display = 'none';
         success.classList.add('show');
         if(errBox) errBox.classList.remove('show');
