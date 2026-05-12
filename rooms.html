@@ -144,6 +144,24 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     /* hidden for filter */
     .room-card.hidden{display:none;}
 
+    /* ── RESORT AREAS ── */
+    .areas-section { background:var(--bg2); border-top:1px solid var(--border); border-bottom:1px solid var(--border); }
+    .areas-grid { display:grid; grid-template-columns:repeat(2,1fr); gap:2rem; }
+    @media(max-width:700px){ .areas-grid { grid-template-columns:1fr; } }
+    .area-card { background:var(--card); border:1px solid var(--border); border-radius:6px; overflow:hidden; transition:transform .35s, box-shadow .35s, border-color .35s; }
+    .area-card:hover { transform:translateY(-5px); box-shadow:0 18px 50px rgba(0,0,0,.22); border-color:var(--border2); }
+    .area-photo { position:relative; height:300px; overflow:hidden; flex-shrink:0; }
+    .area-photo img { width:100%; height:100%; object-fit:cover; transition:transform .6s ease; display:block; }
+    .area-card:hover .area-photo img { transform:scale(1.05); }
+    .area-body { padding:1.8rem 2rem 2rem; }
+    .area-label { font-size:.62rem; letter-spacing:.18em; text-transform:uppercase; color:var(--accent); margin-bottom:.45rem; display:flex; align-items:center; gap:.5rem; }
+    .area-label::before { content:''; width:18px; height:1px; background:var(--accent); opacity:.6; }
+    .area-name { font-family:'Playfair Display',serif; font-size:1.5rem; font-weight:400; margin-bottom:.7rem; color:var(--text); }
+    .area-name em { font-style:italic; color:var(--accent); }
+    .area-desc { font-size:.85rem; color:var(--text2); line-height:1.8; margin-bottom:1.3rem; }
+    .area-feats { display:flex; flex-wrap:wrap; gap:.4rem; }
+    .area-feat { background:var(--accent-g); border:1px solid rgba(77,194,232,.25); color:var(--accent); padding:.22rem .65rem; border-radius:20px; font-size:.67rem; letter-spacing:.04em; }
+
     /* ── INCLUSIONS STRIP ── */
     .inclusions{background:var(--bg2);border-top:1px solid var(--border);border-bottom:1px solid var(--border);}
     .inc-grid{max-width:1300px;margin:0 auto;padding:3rem 2.5rem;display:grid;grid-template-columns:repeat(4,1fr);gap:2rem;}
@@ -367,8 +385,6 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <button class="filter-btn active" data-filter="all">All Rooms</button>
     <button class="filter-btn" data-filter="standard">Standard</button>
     <button class="filter-btn" data-filter="deluxe">Deluxe</button>
-    <button class="filter-btn" data-filter="bar">Bar Area</button>
-    <button class="filter-btn" data-filter="beach">Beach Deck</button>
   </div>
 
   <!-- INCLUSIONS STRIP -->
@@ -587,10 +603,30 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           </div>
         </div>
 
+
+      </div>
+
+      <p class="rv" style="text-align:center;margin-top:2.5rem;font-size:.8rem;color:var(--text3)">
+        Breakfast is included for all registered guests &nbsp;·&nbsp; Non-smoking rooms available &nbsp;·&nbsp;
+        <a href="index.html#booking" style="color:var(--accent);text-decoration:none">Ask about our Dive &amp; Stay packages →</a>
+      </p>
+    </div>
+  </section>
+
+  <!-- RESORT AREAS -->
+  <section class="areas-section">
+    <div class="sec-wrap">
+      <div class="sec-header rv">
+        <div class="sec-eyebrow">Explore the Property</div>
+        <h2 class="sec-h2">Resort <em>Areas</em></h2>
+        <p class="sec-sub">Beyond your room — the spaces that complete the Casa Escondida experience.</p>
+      </div>
+      <div class="areas-grid">
+
         <!-- BAR AREA -->
-        <div class="room-card rv rv-d2" data-type="bar">
-          <div class="rm-photo rm-gallery">
-            <img src="images/rooms/Bar%20Area/Bar%20Area.jpg" class="rm-slide active" alt="Casa Escondida Bar Area" loading="lazy" decoding="async" width="700" height="467" />
+        <div class="area-card rv rv-d1">
+          <div class="area-photo rm-gallery">
+            <img src="images/rooms/Bar%20Area/Bar%20Area.jpg" class="rm-slide active" alt="Casa Escondida Bar and Lounge" loading="lazy" decoding="async" width="700" height="467" />
             <img src="images/rooms/Bar%20Area/470826413_1107744471358216_6825330427874791703_n.jpg" class="rm-slide" alt="Bar Area" loading="lazy" decoding="async" width="700" height="467" />
             <img src="images/rooms/Bar%20Area/470866036_1107744354691561_6022236390118099751_n.jpg" class="rm-slide" alt="Bar Area" loading="lazy" decoding="async" width="700" height="467" />
             <img src="images/rooms/Bar%20Area/471129835_1107744568024873_3129222903791134298_n.jpg" class="rm-slide" alt="Bar Area" loading="lazy" decoding="async" width="700" height="467" />
@@ -600,31 +636,24 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             <div class="rm-dots">
               <span class="rm-dot active"></span><span class="rm-dot"></span><span class="rm-dot"></span><span class="rm-dot"></span><span class="rm-dot"></span>
             </div>
-            <div class="rm-badge-wrap">
-              <span class="rm-badge">Bar Area</span>
-            </div>
           </div>
-          <div class="rm-body">
-            <div class="rm-name">The <em>Bar &amp; Lounge</em></div>
-            <p class="rm-desc">Unwind after a dive at our open-air bar overlooking Batangas Bay. Enjoy cold drinks, cocktails, and light bites in a relaxed beachside setting — the perfect spot to swap dive stories as the sun goes down.</p>
-            <div class="rm-feats-label">Highlights</div>
-            <div class="rm-feats">
-              <span class="rm-feat">Ocean View</span>
-              <span class="rm-feat">Cold Drinks &amp; Cocktails</span>
-              <span class="rm-feat">Open Air</span>
-              <span class="rm-feat">Light Bites</span>
-              <span class="rm-feat">Dive Debrief Spot</span>
-            </div>
-            <div class="rm-actions">
-              <a href="index.html#booking" class="rm-btn-primary">Book Your Stay</a>
-              <a href="index.html#booking" class="rm-btn-ghost">Inquire</a>
+          <div class="area-body">
+            <div class="area-label">Bar &amp; Lounge</div>
+            <div class="area-name">The <em>Bar &amp; Lounge</em></div>
+            <p class="area-desc">Unwind after a dive at our open-air bar overlooking Batangas Bay. Enjoy cold drinks, cocktails, and light bites in a relaxed beachside setting — the perfect spot to swap dive stories as the sun goes down.</p>
+            <div class="area-feats">
+              <span class="area-feat">Ocean View</span>
+              <span class="area-feat">Cold Drinks &amp; Cocktails</span>
+              <span class="area-feat">Open Air</span>
+              <span class="area-feat">Light Bites</span>
+              <span class="area-feat">Dive Debrief Spot</span>
             </div>
           </div>
         </div>
 
         <!-- BEACH DECK -->
-        <div class="room-card rv rv-d3" data-type="beach">
-          <div class="rm-photo rm-gallery">
+        <div class="area-card rv rv-d2">
+          <div class="area-photo rm-gallery">
             <img src="images/rooms/Beach%20Deck/Beach%20Deck.jpg" class="rm-slide active" alt="Casa Escondida Beach Deck" loading="lazy" decoding="async" width="700" height="467" />
             <img src="images/rooms/Beach%20Deck/Beach_Deck2.jpeg" class="rm-slide" alt="Beach Deck" loading="lazy" decoding="async" width="700" height="467" />
             <img src="images/rooms/Beach%20Deck/IMG_3193.jpeg" class="rm-slide" alt="Beach Deck" loading="lazy" decoding="async" width="700" height="467" />
@@ -635,34 +664,22 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             <div class="rm-dots">
               <span class="rm-dot active"></span><span class="rm-dot"></span><span class="rm-dot"></span><span class="rm-dot"></span><span class="rm-dot"></span>
             </div>
-            <div class="rm-badge-wrap">
-              <span class="rm-badge">Beach Deck</span>
-            </div>
           </div>
-          <div class="rm-body">
-            <div class="rm-name">The <em>Beach Deck</em></div>
-            <p class="rm-desc">Step directly from your suite onto our seafront deck and feel Batangas Bay at your feet. Lounge chairs, sun, and unobstructed sea views — the ideal place to relax between dives or watch the sunrise over the water.</p>
-            <div class="rm-feats-label">Highlights</div>
-            <div class="rm-feats">
-              <span class="rm-feat">Seafront Access</span>
-              <span class="rm-feat">Lounge Area</span>
-              <span class="rm-feat">Sea View</span>
-              <span class="rm-feat">Sunrise Spot</span>
-              <span class="rm-feat">Direct Beach Entry</span>
-            </div>
-            <div class="rm-actions">
-              <a href="index.html#booking" class="rm-btn-primary">Book Your Stay</a>
-              <a href="index.html#booking" class="rm-btn-ghost">Inquire</a>
+          <div class="area-body">
+            <div class="area-label">Beach Deck</div>
+            <div class="area-name">The <em>Beach Deck</em></div>
+            <p class="area-desc">Step directly from your suite onto our seafront deck and feel Batangas Bay at your feet. Lounge chairs, sun, and unobstructed sea views — the ideal place to relax between dives or watch the sunrise over the water.</p>
+            <div class="area-feats">
+              <span class="area-feat">Seafront Access</span>
+              <span class="area-feat">Lounge Area</span>
+              <span class="area-feat">Sea View</span>
+              <span class="area-feat">Sunrise Spot</span>
+              <span class="area-feat">Direct Beach Entry</span>
             </div>
           </div>
         </div>
 
       </div>
-
-      <p class="rv" style="text-align:center;margin-top:2.5rem;font-size:.8rem;color:var(--text3)">
-        Breakfast is included for all registered guests &nbsp;·&nbsp; Non-smoking rooms available &nbsp;·&nbsp;
-        <a href="index.html#booking" style="color:var(--accent);text-decoration:none">Ask about our Dive &amp; Stay packages →</a>
-      </p>
     </div>
   </section>
 
