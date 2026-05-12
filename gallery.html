@@ -981,6 +981,9 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     });
   });
 
+  /* ── Auto-render Underwater grid on load (it's the default active tab) ── */
+  window._uwRendered = false;
+
   /* ══════════════════════════════════════════════
      UNDERWATER WORLD — data, carousel & modal
      ══════════════════════════════════════════════ */
@@ -1601,6 +1604,10 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       renderUnderwaterGrid(btn.dataset.uw);
     });
   });
+
+  /* ── Render Underwater grid immediately (it is the default active tab) ── */
+  renderUnderwaterGrid('all');
+  window._uwRendered = true;
 
   /* ── Navbar scroll: hide on down, show on up ── */
   (function(){
