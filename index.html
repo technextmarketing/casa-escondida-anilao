@@ -301,10 +301,16 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       position:fixed; inset:0 0 auto 0; z-index:200;
       display:flex; align-items:center; justify-content:space-between;
       padding:1.4rem 4rem;
-      transition: all 0.45s ease;
+      transition: transform 0.38s cubic-bezier(0.4,0,0.2,1),
+                  padding  0.45s ease,
+                  background 0.45s ease,
+                  backdrop-filter 0.45s ease,
+                  box-shadow 0.45s ease;
       /* subtle top vignette so text is always readable over hero */
       background: linear-gradient(180deg, rgba(4,8,15,0.52) 0%, transparent 100%);
     }
+    /* Hide nav by sliding it up off-screen */
+    #nav.nav-hidden { transform: translateY(-100%); }
     #nav.scrolled {
       padding:0.75rem 4rem;
       background:var(--nav-bg);
@@ -3192,9 +3198,38 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     if (!localStorage.getItem('ce-theme')) { html.setAttribute('data-theme', e.matches ? 'night' : 'day'); syncThemeUI(); }
   });
 
-  /* ── Navbar scroll ── */
+  /* ── Navbar scroll: glass effect + hide-on-down / show-on-up ── */
   const nav = document.getElementById('nav');
-  window.addEventListener('scroll',()=> nav.classList.toggle('scrolled',window.scrollY>60), {passive:true});
+  let lastScrollY = 0;
+  let ticking = false;
+
+  function updateNav() {
+    const y = window.scrollY;
+
+    /* Glass background once past hero top band */
+    nav.classList.toggle('scrolled', y > 60);
+
+    /* Hide / show based on direction — never hide within first 120px */
+    if (y < 120) {
+      nav.classList.remove('nav-hidden');
+    } else if (y > lastScrollY + 6) {
+      /* Scrolling down → hide */
+      nav.classList.add('nav-hidden');
+    } else if (y < lastScrollY - 6) {
+      /* Scrolling up → reveal */
+      nav.classList.remove('nav-hidden');
+    }
+
+    lastScrollY = y;
+    ticking = false;
+  }
+
+  window.addEventListener('scroll', () => {
+    if (!ticking) {
+      requestAnimationFrame(updateNav);
+      ticking = true;
+    }
+  }, {passive: true});
 
   /* ── Bubbles ── */
   const bc = document.getElementById('heroBubbles');
