@@ -86,8 +86,6 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
     /* ── ROOM CARDS ── */
     .rooms-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2rem;}
-    /* Photos hidden — pending image replacement */
-    .rm-photo { display:none !important; }
     @media(max-width:1100px){.rooms-grid{grid-template-columns:repeat(2,1fr);}}
     @media(max-width:700px){.rooms-grid{grid-template-columns:1fr;}}
 
@@ -369,6 +367,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <button class="filter-btn active" data-filter="all">All Rooms</button>
     <button class="filter-btn" data-filter="standard">Standard</button>
     <button class="filter-btn" data-filter="deluxe">Deluxe</button>
+    <button class="filter-btn" data-filter="bar">Bar Area</button>
+    <button class="filter-btn" data-filter="beach">Beach Deck</button>
   </div>
 
   <!-- INCLUSIONS STRIP -->
@@ -427,14 +427,15 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <!-- STANDARD ROOM — TWIN (2 single beds) -->
         <div class="room-card rv rv-d1" data-type="standard">
           <div class="rm-photo rm-gallery">
-            <img src="images/rooms/standard-twin/1.webp" class="rm-slide active" alt="Standard Twin — Room view" loading="lazy" decoding="async" width="700" height="467" />
-            <img src="images/rooms/standard-twin/2.webp" class="rm-slide" alt="Standard Twin — Wide view" loading="lazy" decoding="async" width="700" height="467" />
-            <img src="images/rooms/standard-twin/3.webp" class="rm-slide" alt="Standard Twin — Bathroom" loading="lazy" decoding="async" width="700" height="467" />
-            <img src="images/rooms/standard-twin/4.webp" class="rm-slide" alt="Standard Twin — Panoramic" loading="lazy" decoding="async" width="700" height="467" />
+            <img src="images/rooms/01.%20Standard%20Double%20or%20Twin%20Room/1.jpg" class="rm-slide active" alt="Standard Twin Room" loading="lazy" decoding="async" width="700" height="467" />
+            <img src="images/rooms/01.%20Standard%20Double%20or%20Twin%20Room/2.jpg" class="rm-slide" alt="Standard Twin Room" loading="lazy" decoding="async" width="700" height="467" />
+            <img src="images/rooms/01.%20Standard%20Double%20or%20Twin%20Room/3.jpg" class="rm-slide" alt="Standard Twin Room" loading="lazy" decoding="async" width="700" height="467" />
+            <img src="images/rooms/01.%20Standard%20Double%20or%20Twin%20Room/4.jpg" class="rm-slide" alt="Standard Twin Room" loading="lazy" decoding="async" width="700" height="467" />
+            <img src="images/rooms/01.%20Standard%20Double%20or%20Twin%20Room/628968079.jpg" class="rm-slide" alt="Standard Twin Room" loading="lazy" decoding="async" width="700" height="467" />
             <button class="rm-gallery-btn rm-prev" aria-label="Previous photo">&#8249;</button>
             <button class="rm-gallery-btn rm-next" aria-label="Next photo">&#8250;</button>
             <div class="rm-dots">
-              <span class="rm-dot active"></span><span class="rm-dot"></span><span class="rm-dot"></span><span class="rm-dot"></span>
+              <span class="rm-dot active"></span><span class="rm-dot"></span><span class="rm-dot"></span><span class="rm-dot"></span><span class="rm-dot"></span>
             </div>
             <div class="rm-badge-wrap">
               <span class="rm-badge">Standard</span>
@@ -479,13 +480,14 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <!-- STANDARD ROOM — DOUBLE (1 double bed) -->
         <div class="room-card rv rv-d2" data-type="standard">
           <div class="rm-photo rm-gallery">
-            <img src="images/rooms/standard-double/2.webp" class="rm-slide active" alt="Standard Double — Bed" loading="lazy" decoding="async" width="700" height="467" />
-            <img src="images/rooms/standard-double/1.webp" class="rm-slide" alt="Standard Double — Room view" loading="lazy" decoding="async" width="700" height="467" />
-            <img src="images/rooms/standard-double/3.webp" class="rm-slide" alt="Standard Double — Bathroom" loading="lazy" decoding="async" width="700" height="467" />
+            <img src="images/rooms/02.%20Deluxe%20Double%20or%20Twin%20Room/628966346.jpg" class="rm-slide active" alt="Deluxe Double Room" loading="lazy" decoding="async" width="700" height="467" />
+            <img src="images/rooms/02.%20Deluxe%20Double%20or%20Twin%20Room/628966348.jpg" class="rm-slide" alt="Deluxe Double Room" loading="lazy" decoding="async" width="700" height="467" />
+            <img src="images/rooms/02.%20Deluxe%20Double%20or%20Twin%20Room/628966351.jpg" class="rm-slide" alt="Deluxe Double Room" loading="lazy" decoding="async" width="700" height="467" />
+            <img src="images/rooms/02.%20Deluxe%20Double%20or%20Twin%20Room/628966356.jpg" class="rm-slide" alt="Deluxe Double Room" loading="lazy" decoding="async" width="700" height="467" />
             <button class="rm-gallery-btn rm-prev" aria-label="Previous photo">&#8249;</button>
             <button class="rm-gallery-btn rm-next" aria-label="Next photo">&#8250;</button>
             <div class="rm-dots">
-              <span class="rm-dot active"></span><span class="rm-dot"></span><span class="rm-dot"></span>
+              <span class="rm-dot active"></span><span class="rm-dot"></span><span class="rm-dot"></span><span class="rm-dot"></span>
             </div>
             <div class="rm-badge-wrap">
               <span class="rm-badge">Deluxe</span>
@@ -530,14 +532,15 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <!-- BEACH DELUXE ROOM — featured -->
         <div class="room-card featured rv rv-d1" data-type="deluxe">
           <div class="rm-photo rm-gallery">
-            <img src="images/rooms/beach-deluxe/1.webp" class="rm-slide active" alt="Beach Deluxe — Sea view" loading="lazy" decoding="async" width="700" height="467" />
-            <img src="images/rooms/beach-deluxe/2.webp" class="rm-slide" alt="Beach Deluxe — Beds" loading="lazy" decoding="async" width="700" height="467" />
-            <img src="images/rooms/beach-deluxe/3.webp" class="rm-slide" alt="Beach Deluxe — Bathroom" loading="lazy" decoding="async" width="700" height="467" />
-            <img src="images/rooms/beach-deluxe/4.webp" class="rm-slide" alt="Beach Deluxe — Vanity" loading="lazy" decoding="async" width="700" height="467" />
+            <img src="images/rooms/03.%20Suite%20with%20Sea%20View/Suiteroom_New.jpg" class="rm-slide active" alt="Suite with Sea View" loading="lazy" decoding="async" width="700" height="467" />
+            <img src="images/rooms/03.%20Suite%20with%20Sea%20View/Suite%20Room%201.jpg" class="rm-slide" alt="Suite with Sea View" loading="lazy" decoding="async" width="700" height="467" />
+            <img src="images/rooms/03.%20Suite%20with%20Sea%20View/628960767.jpg" class="rm-slide" alt="Suite with Sea View" loading="lazy" decoding="async" width="700" height="467" />
+            <img src="images/rooms/03.%20Suite%20with%20Sea%20View/628960206.jpg" class="rm-slide" alt="Suite with Sea View" loading="lazy" decoding="async" width="700" height="467" />
+            <img src="images/rooms/03.%20Suite%20with%20Sea%20View/628960210.jpg" class="rm-slide" alt="Suite with Sea View" loading="lazy" decoding="async" width="700" height="467" />
             <button class="rm-gallery-btn rm-prev" aria-label="Previous photo">&#8249;</button>
             <button class="rm-gallery-btn rm-next" aria-label="Next photo">&#8250;</button>
             <div class="rm-dots">
-              <span class="rm-dot active"></span><span class="rm-dot"></span><span class="rm-dot"></span><span class="rm-dot"></span>
+              <span class="rm-dot active"></span><span class="rm-dot"></span><span class="rm-dot"></span><span class="rm-dot"></span><span class="rm-dot"></span>
             </div>
             <div class="rm-badge-wrap">
               <span class="rm-badge gold">Suite</span>
@@ -584,6 +587,75 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           </div>
         </div>
 
+        <!-- BAR AREA -->
+        <div class="room-card rv rv-d2" data-type="bar">
+          <div class="rm-photo rm-gallery">
+            <img src="images/rooms/Bar%20Area/Bar%20Area.jpg" class="rm-slide active" alt="Casa Escondida Bar Area" loading="lazy" decoding="async" width="700" height="467" />
+            <img src="images/rooms/Bar%20Area/470826413_1107744471358216_6825330427874791703_n.jpg" class="rm-slide" alt="Bar Area" loading="lazy" decoding="async" width="700" height="467" />
+            <img src="images/rooms/Bar%20Area/470866036_1107744354691561_6022236390118099751_n.jpg" class="rm-slide" alt="Bar Area" loading="lazy" decoding="async" width="700" height="467" />
+            <img src="images/rooms/Bar%20Area/471129835_1107744568024873_3129222903791134298_n.jpg" class="rm-slide" alt="Bar Area" loading="lazy" decoding="async" width="700" height="467" />
+            <img src="images/rooms/Bar%20Area/IMG_3019.jpeg" class="rm-slide" alt="Bar Area" loading="lazy" decoding="async" width="700" height="467" />
+            <button class="rm-gallery-btn rm-prev" aria-label="Previous photo">&#8249;</button>
+            <button class="rm-gallery-btn rm-next" aria-label="Next photo">&#8250;</button>
+            <div class="rm-dots">
+              <span class="rm-dot active"></span><span class="rm-dot"></span><span class="rm-dot"></span><span class="rm-dot"></span><span class="rm-dot"></span>
+            </div>
+            <div class="rm-badge-wrap">
+              <span class="rm-badge">Bar Area</span>
+            </div>
+          </div>
+          <div class="rm-body">
+            <div class="rm-name">The <em>Bar &amp; Lounge</em></div>
+            <p class="rm-desc">Unwind after a dive at our open-air bar overlooking Batangas Bay. Enjoy cold drinks, cocktails, and light bites in a relaxed beachside setting — the perfect spot to swap dive stories as the sun goes down.</p>
+            <div class="rm-feats-label">Highlights</div>
+            <div class="rm-feats">
+              <span class="rm-feat">Ocean View</span>
+              <span class="rm-feat">Cold Drinks &amp; Cocktails</span>
+              <span class="rm-feat">Open Air</span>
+              <span class="rm-feat">Light Bites</span>
+              <span class="rm-feat">Dive Debrief Spot</span>
+            </div>
+            <div class="rm-actions">
+              <a href="index.html#booking" class="rm-btn-primary">Book Your Stay</a>
+              <a href="index.html#booking" class="rm-btn-ghost">Inquire</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- BEACH DECK -->
+        <div class="room-card rv rv-d3" data-type="beach">
+          <div class="rm-photo rm-gallery">
+            <img src="images/rooms/Beach%20Deck/Beach%20Deck.jpg" class="rm-slide active" alt="Casa Escondida Beach Deck" loading="lazy" decoding="async" width="700" height="467" />
+            <img src="images/rooms/Beach%20Deck/Beach_Deck2.jpeg" class="rm-slide" alt="Beach Deck" loading="lazy" decoding="async" width="700" height="467" />
+            <img src="images/rooms/Beach%20Deck/IMG_3193.jpeg" class="rm-slide" alt="Beach Deck" loading="lazy" decoding="async" width="700" height="467" />
+            <img src="images/rooms/Beach%20Deck/IMG_3194.jpeg" class="rm-slide" alt="Beach Deck" loading="lazy" decoding="async" width="700" height="467" />
+            <img src="images/rooms/Beach%20Deck/IMG_3209.jpeg" class="rm-slide" alt="Beach Deck" loading="lazy" decoding="async" width="700" height="467" />
+            <button class="rm-gallery-btn rm-prev" aria-label="Previous photo">&#8249;</button>
+            <button class="rm-gallery-btn rm-next" aria-label="Next photo">&#8250;</button>
+            <div class="rm-dots">
+              <span class="rm-dot active"></span><span class="rm-dot"></span><span class="rm-dot"></span><span class="rm-dot"></span><span class="rm-dot"></span>
+            </div>
+            <div class="rm-badge-wrap">
+              <span class="rm-badge">Beach Deck</span>
+            </div>
+          </div>
+          <div class="rm-body">
+            <div class="rm-name">The <em>Beach Deck</em></div>
+            <p class="rm-desc">Step directly from your suite onto our seafront deck and feel Batangas Bay at your feet. Lounge chairs, sun, and unobstructed sea views — the ideal place to relax between dives or watch the sunrise over the water.</p>
+            <div class="rm-feats-label">Highlights</div>
+            <div class="rm-feats">
+              <span class="rm-feat">Seafront Access</span>
+              <span class="rm-feat">Lounge Area</span>
+              <span class="rm-feat">Sea View</span>
+              <span class="rm-feat">Sunrise Spot</span>
+              <span class="rm-feat">Direct Beach Entry</span>
+            </div>
+            <div class="rm-actions">
+              <a href="index.html#booking" class="rm-btn-primary">Book Your Stay</a>
+              <a href="index.html#booking" class="rm-btn-ghost">Inquire</a>
+            </div>
+          </div>
+        </div>
 
       </div>
 
