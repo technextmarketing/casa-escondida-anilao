@@ -867,6 +867,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     var slides = gallery.querySelectorAll('.rm-slide');
     var dots   = gallery.querySelectorAll('.rm-dot');
     var cur = 0;
+    var timer;
     function goTo(n) {
       slides[cur].classList.remove('active');
       dots[cur].classList.remove('active');
@@ -874,9 +875,14 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       slides[cur].classList.add('active');
       dots[cur].classList.add('active');
     }
-    gallery.querySelector('.rm-prev').addEventListener('click', function(e){ e.stopPropagation(); goTo(cur-1); });
-    gallery.querySelector('.rm-next').addEventListener('click', function(e){ e.stopPropagation(); goTo(cur+1); });
-    dots.forEach(function(dot, i){ dot.addEventListener('click', function(e){ e.stopPropagation(); goTo(i); }); });
+    function startAuto() { timer = setInterval(function(){ goTo(cur + 1); }, 3000); }
+    function resetAuto() { clearInterval(timer); startAuto(); }
+    gallery.querySelector('.rm-prev').addEventListener('click', function(e){ e.stopPropagation(); goTo(cur-1); resetAuto(); });
+    gallery.querySelector('.rm-next').addEventListener('click', function(e){ e.stopPropagation(); goTo(cur+1); resetAuto(); });
+    dots.forEach(function(dot, i){ dot.addEventListener('click', function(e){ e.stopPropagation(); goTo(i); resetAuto(); }); });
+    gallery.addEventListener('mouseenter', function(){ clearInterval(timer); });
+    gallery.addEventListener('mouseleave', function(){ startAuto(); });
+    startAuto();
   });
 
   /* ── Navbar scroll: hide on down, show on up ── */
