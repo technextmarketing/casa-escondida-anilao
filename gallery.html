@@ -68,7 +68,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     .g-stat-l{font-size:.65rem;letter-spacing:.15em;text-transform:uppercase;color:var(--text3);margin-top:.2rem;}
 
     /* ── TAB NAV ── */
-    .tab-bar{position:sticky;top:65px;z-index:100;background:var(--bg);border-bottom:1px solid var(--border);padding:0 4rem;display:flex;align-items:stretch;justify-content:center;gap:0;overflow-x:auto;transition:background .5s;}
+    .tab-bar{position:sticky;top:65px;z-index:100;background:var(--bg);border-bottom:1px solid var(--border);padding:0 4rem;display:flex;align-items:stretch;justify-content:center;gap:0;overflow-x:auto;transition:background .5s, top .38s cubic-bezier(.4,0,.2,1);}
     .tab-btn{padding:1rem 1.6rem;border:none;border-bottom:2px solid transparent;background:none;color:var(--text2);font-size:.78rem;letter-spacing:.1em;text-transform:uppercase;cursor:pointer;transition:all .3s;white-space:nowrap;font-family:'DM Sans',sans-serif;display:flex;align-items:center;gap:.5rem;}
     .tab-btn svg{width:14px;height:14px;opacity:.7;}
     .tab-btn:hover{color:var(--accent);}
@@ -1611,8 +1611,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
   /* ── Navbar scroll: hide on down, show on up ── */
   (function(){
-    var nav=document.getElementById('nav'),lastY=0,ticking=false;
-    function update(){var y=window.scrollY;if(y<120)nav.classList.remove('nav-hidden');else if(y>lastY+6)nav.classList.add('nav-hidden');else if(y<lastY-6)nav.classList.remove('nav-hidden');lastY=y;ticking=false;}
+    var nav=document.getElementById('nav'),tabBar=document.querySelector('.tab-bar'),lastY=0,ticking=false;
+    function update(){var y=window.scrollY;if(y<120){nav.classList.remove('nav-hidden');if(tabBar)tabBar.style.top='65px';}else if(y>lastY+6){nav.classList.add('nav-hidden');if(tabBar)tabBar.style.top='0';}else if(y<lastY-6){nav.classList.remove('nav-hidden');if(tabBar)tabBar.style.top='65px';}lastY=y;ticking=false;}
     window.addEventListener('scroll',function(){if(!ticking){requestAnimationFrame(update);ticking=true;}},{passive:true});
   })();
 
