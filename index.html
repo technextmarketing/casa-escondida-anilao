@@ -168,10 +168,6 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     .svc-desc, .rm-desc, .di-desc, .loc-val { font-size:0.92rem !important; line-height:1.8 !important; }
     .rv-quote { font-size:1.1rem !important; line-height:1.8 !important; }
     .foot-desc, .foot-links a { font-size:0.9rem !important; }
-    /* Cursor:none only for pointer/mouse users — keyboard users keep native cursor */
-    body.has-mouse { cursor: none; }
-    body.has-mouse *:not(input):not(textarea):not(select) { cursor: none; }
-
     /* Skip-to-content link */
     .skip-link {
       position: fixed; top: -100%; left: 1rem; z-index: 9999;
@@ -181,107 +177,6 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       transition: top 0.2s;
     }
     .skip-link:focus { top: 1rem; }
-
-    /* ═══════════════════════════════════════════
-       CUSTOM CURSOR
-    ═══════════════════════════════════════════ */
-    #cur-dot {
-      position:fixed; z-index:9999; pointer-events:none;
-      width:8px; height:8px; background:var(--accent);
-      border-radius:50%; transform:translate(-50%,-50%);
-      transition:transform 0.1s cubic-bezier(0.34,1.56,0.64,1), background 0.25s, width 0.2s, height 0.2s;
-      mix-blend-mode:screen;
-    }
-    #cur-ring {
-      position:fixed; z-index:9998; pointer-events:none;
-      width:36px; height:36px;
-      border:1.5px solid rgba(77,194,232,0.5);
-      border-radius:50%; transform:translate(-50%,-50%);
-      transition:width 0.35s cubic-bezier(0.34,1.56,0.64,1),
-                 height 0.35s cubic-bezier(0.34,1.56,0.64,1),
-                 border-color 0.25s, opacity 0.25s;
-    }
-    body.cur-hover #cur-dot {
-      transform:translate(-50%,-50%) scale(3);
-      background:var(--gold);
-    }
-    body.cur-hover #cur-ring {
-      width:56px; height:56px;
-      border-color:rgba(232,197,106,0.6);
-    }
-    body.cur-click #cur-dot {
-      transform:translate(-50%,-50%) scale(5);
-      background:var(--gold);
-      opacity:0.5;
-    }
-    body.cur-click #cur-ring {
-      width:80px; height:80px;
-      border-color:var(--gold);
-      opacity:0;
-    }
-    /* ── Day mode: restore native cursor, hide all custom elements ── */
-    [data-theme="day"] #cur-dot  { display:none !important; }
-    [data-theme="day"] #cur-ring { display:none !important; }
-    [data-theme="day"] .cur-ripple,
-    [data-theme="day"] .cur-burst,
-    [data-theme="day"] .cur-ring-burst { display:none !important; }
-    [data-theme="day"] body.has-mouse { cursor:auto; }
-    [data-theme="day"] body.has-mouse *:not(input):not(textarea):not(select) { cursor:auto; }
-
-    /* ── Move ripples (trailing water ring) ── */
-    .cur-ripple {
-      position:fixed; z-index:9990; pointer-events:none;
-      border-radius:50%;
-      transform:translate(-50%,-50%) scale(0);
-      border:1.5px solid var(--accent);
-      animation:curRipple 0.8s cubic-bezier(0.22,1,0.36,1) forwards;
-    }
-    @keyframes curRipple {
-      0%   { transform:translate(-50%,-50%) scale(0);   opacity:0.6; }
-      100% { transform:translate(-50%,-50%) scale(1);   opacity:0; }
-    }
-
-    /* ── Click: layered water-drop ripple ── */
-    .cur-burst {
-      position:fixed; z-index:9990; pointer-events:none;
-      border-radius:50%;
-      transform:translate(-50%,-50%) scale(0);
-      background:radial-gradient(circle, rgba(232,197,106,0.55) 0%, rgba(77,194,232,0.35) 40%, transparent 70%);
-      animation:curBurst 0.6s cubic-bezier(0.22,1,0.36,1) forwards;
-    }
-    @keyframes curBurst {
-      0%   { transform:translate(-50%,-50%) scale(0);   opacity:1; }
-      60%  { opacity:0.6; }
-      100% { transform:translate(-50%,-50%) scale(1);   opacity:0; }
-    }
-    /* Concentric click rings */
-    .cur-ring-burst {
-      position:fixed; z-index:9991; pointer-events:none;
-      border-radius:50%;
-      transform:translate(-50%,-50%) scale(0);
-      border:2px solid var(--accent);
-      box-shadow:0 0 20px rgba(77,194,232,0.5), inset 0 0 12px rgba(77,194,232,0.35);
-      animation:curRingBurst 0.9s cubic-bezier(0.22,1,0.36,1) forwards;
-    }
-    .cur-ring-burst.r2 { border-color:var(--gold); box-shadow:0 0 18px rgba(232,197,106,0.45); animation-delay:0.08s; animation-duration:1s; }
-    .cur-ring-burst.r3 { border-color:rgba(255,255,255,0.55); animation-delay:0.16s; animation-duration:1.15s; }
-    @keyframes curRingBurst {
-      0%   { transform:translate(-50%,-50%) scale(0);   opacity:1; border-width:2.5px; }
-      60%  { opacity:0.7; border-width:1.5px; }
-      100% { transform:translate(-50%,-50%) scale(1);   opacity:0; border-width:0.5px; }
-    }
-    /* Spark dots radiating on click */
-    .cur-spark {
-      position:fixed; z-index:9992; pointer-events:none;
-      width:5px; height:5px; border-radius:50%;
-      background:var(--gold); box-shadow:0 0 8px var(--gold);
-      transform:translate(-50%,-50%);
-      animation:curSpark 0.7s cubic-bezier(0.22,1,0.36,1) forwards;
-    }
-    @keyframes curSpark {
-      0%   { opacity:1; transform:translate(-50%,-50%) translate(0,0) scale(1); }
-      100% { opacity:0; transform:translate(-50%,-50%) translate(var(--sx,0), var(--sy,0)) scale(0.3); }
-    }
 
     /* ── Button click exaggeration ── */
     .btn-clicked {
@@ -353,7 +248,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       border:1px solid rgba(255,255,255,0.28);
       border-radius:30px;
       padding:0.3rem 0.8rem;
-      cursor:none;
+      cursor:pointer;
       transition:all 0.35s;
       font-size:0.72rem; letter-spacing:0.08em;
       color:#fff;
@@ -391,7 +286,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       border-radius:2px;
       font-family:'DM Sans',sans-serif;
       font-size:0.75rem; letter-spacing:0.12em; text-transform:uppercase;
-      text-decoration:none; cursor:none;
+      text-decoration:none; cursor:pointer;
       transition:background 0.3s, transform 0.2s;
     }
     .btn-nav-cta:hover { background:var(--accent-dark); transform:translateY(-1px); }
@@ -609,7 +504,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       padding:1rem 2.6rem;
       font-family:'DM Sans',sans-serif;
       font-size:0.78rem; letter-spacing:0.14em; text-transform:uppercase;
-      text-decoration:none; border-radius:2px; cursor:none;
+      text-decoration:none; border-radius:2px; cursor:pointer;
       transition:background 0.3s, transform 0.28s cubic-bezier(.34,1.56,.64,1), box-shadow 0.3s;
     }
     /* Shimmer sweep */
@@ -635,7 +530,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       padding:1rem 2.6rem;
       font-family:'DM Sans',sans-serif;
       font-size:0.78rem; letter-spacing:0.14em; text-transform:uppercase;
-      text-decoration:none; border-radius:2px; cursor:none;
+      text-decoration:none; border-radius:2px; cursor:pointer;
       transition:border-color 0.3s, transform 0.28s cubic-bezier(.34,1.56,.64,1), background 0.3s;
     }
     /* Fill wipe */
@@ -973,7 +868,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     /* Dive photo grid */
     .dive-photo-grid { display:grid; grid-template-columns:1fr 1fr; gap:10px; }
     .dpg-item {
-      border-radius:3px; overflow:hidden; position:relative; cursor:none;
+      border-radius:3px; overflow:hidden; position:relative; cursor:pointer;
     }
     .dpg-item:nth-child(1) { grid-row:span 2; }
     .dpg-item img { width:100%; height:100%; object-fit:cover; transition:transform 0.6s ease; display:block; }
@@ -1043,7 +938,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       background:var(--bg-card); border:1px solid var(--border);
       border-radius:3px; overflow:hidden;
       transition:transform 0.4s, border-color 0.3s, box-shadow 0.4s;
-      cursor:none;
+      cursor:pointer;
     }
     .rm-card:hover { transform:translateY(-8px); border-color:var(--border-accent); box-shadow:0 24px 60px rgba(0,0,0,0.2); z-index:10; }
     .rm-photo { height:240px; overflow:hidden; position:relative; }
@@ -1084,7 +979,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     #gallery { background:var(--bg-primary); }
     .gallery-intro { display:grid; grid-template-columns:1fr 1fr; gap:5rem; align-items:end; margin-bottom:4rem; }
     .mosaic { display:grid; grid-template-columns:repeat(12,1fr); grid-template-rows:240px 200px 160px; gap:8px; }
-    .mo { border-radius:3px; overflow:hidden; position:relative; cursor:none; }
+    .mo { border-radius:3px; overflow:hidden; position:relative; cursor:pointer; }
     .mo:nth-child(1) { grid-column:1/5;  grid-row:1/2; }
     .mo:nth-child(2) { grid-column:5/9;  grid-row:1/2; }
     .mo:nth-child(3) { grid-column:9/13; grid-row:1/3; }
@@ -1254,14 +1149,14 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     .b-input::placeholder { color:rgba(255,255,255,0.38); }
     .b-input:focus { border-color:var(--accent); }
     .b-input[type="date"]::-webkit-calendar-picker-indicator { filter:invert(1) opacity(0.5); }
-    select.b-input { appearance:none; background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='rgba(255,255,255,0.5)' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E"); background-repeat:no-repeat; background-position:right 1rem center; padding-right:2.5rem; cursor:none; }
+    select.b-input { appearance:none; background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='rgba(255,255,255,0.5)' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E"); background-repeat:no-repeat; background-position:right 1rem center; padding-right:2.5rem; cursor:pointer; }
     select.b-input option { background:#04080f; color:#f0f4f8; }
     .btn-book {
       background:var(--gold); color:#0d1e2e; border:none;
       padding:0.9rem 2.4rem; border-radius:2px;
       font-family:'DM Sans',sans-serif;
       font-size:0.78rem; letter-spacing:0.14em; text-transform:uppercase;
-      font-weight:500; cursor:none;
+      font-weight:500; cursor:pointer;
       transition:background 0.3s, transform 0.2s;
     }
     .btn-book:hover { background:#f0d17a; transform:translateY(-2px); }
@@ -1397,7 +1292,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       width:36px; height:36px; border:1px solid var(--border); border-radius:50%;
       display:flex; align-items:center; justify-content:center;
       text-decoration:none; color:var(--text-muted);
-      transition:all 0.3s; cursor:none;
+      transition:all 0.3s; cursor:pointer;
     }
     .soc svg { width:15px; height:15px; fill:none; stroke:currentColor; stroke-width:2; stroke-linecap:round; stroke-linejoin:round; display:block; }
     .soc svg.fill-icon { fill:currentColor; stroke:none; }
@@ -1813,41 +1708,18 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     .rm-name { font-size: 1.05rem !important; }
   }
 
-  
-    /* ── Hide cursor elements on mobile (mouse-only features) ── */
-    @media (max-width: 768px) {
-      #cur-dot, #cur-ring, .cur-ring-burst,
-      .cur-ripple, .cur-burst, .cur-spark { display: none !important; }
 
-      /* Hide hover-only list on touch (tap triggers :hover in some browsers) */
+    /* ── Hide hover-only list on touch ── */
+    @media (max-width: 768px) {
       .svc-list { display: none !important; }
     }
     @media (hover: none) {
-      #cur-dot, #cur-ring, .cur-ring-burst,
-      .cur-ripple, .cur-burst { display: none !important; }
       .svc-list { display: none !important; }
     }
-  
-    /* ── HARD-KILL cursor & svc-list on all mobile/touch (broadened) ── */
     @media (max-width: 1100px) {
-      #cur-dot, #cur-ring, .cur-ring-burst,
-      .cur-ripple, .cur-burst, .cursor-trail {
-        display: none !important;
-        visibility: hidden !important;
-        opacity: 0 !important;
-      }
       .svc-list { display: none !important; }
     }
-    @media (hover: none) {
-      #cur-dot, #cur-ring, .cur-ring-burst,
-      .cur-ripple, .cur-burst, .cursor-trail {
-        display: none !important;
-        visibility: hidden !important;
-        opacity: 0 !important;
-      }
-      .svc-list { display: none !important; }
-    }
-  
+
     /* ── Kill hover-list on mobile/touch (explicit high-specificity override) ── */
     @media (max-width: 1100px) {
       .svc-content { max-height: calc(100% - 3.5rem); overflow: hidden; }
@@ -2340,18 +2212,6 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   [data-theme="day"] .exit-dismiss { color: rgba(13,30,46,0.38); }
   [data-theme="day"] .exit-dismiss:hover { color: rgba(13,30,46,0.65); }
 
-  /* ── Cursor off on touch (pointer:coarse covers all phones/tablets) ── */
-  @media (pointer: coarse) {
-    #cur-dot, #cur-ring,
-    .cur-ring-burst, .cur-ripple, .cur-burst, .cur-spark { display: none !important; }
-    canvas                                   { display: none !important; }
-    body, body *                             { cursor: auto !important; }
-  }
-  .is-touch #cur-dot, .is-touch #cur-ring,
-  .is-touch .cur-ring-burst, .is-touch .cur-ripple,
-  .is-touch .cur-burst, .is-touch .cur-spark { display: none !important; }
-  .is-touch canvas                           { display: none !important; }
-  .is-touch body, .is-touch body *           { cursor: auto !important; }
 
   </style>
 </head>
@@ -2374,10 +2234,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   <!-- Skip-to-content (keyboard accessibility) -->
   <a href="#main-content" class="skip-link">Skip to main content</a>
 
-  <!-- Cursor (hidden until mouse detected via JS) -->
-  <div id="cur-dot" aria-hidden="true"></div>
   <div id="scroll-progress" aria-hidden="true"></div>
-  <div id="cur-ring" aria-hidden="true"></div>
 
   <!-- ═══ NAV ═══ -->
   <nav id="nav">
@@ -3069,112 +2926,6 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   </footer>
 
   <script>
-/* ── Touch device detection — disables cursor system ── */
-(function(){
-  var isTouch = (window.matchMedia && window.matchMedia('(pointer:coarse)').matches)
-                || 'ontouchstart' in window
-                || navigator.maxTouchPoints > 0;
-  if (isTouch) document.documentElement.classList.add('is-touch');
-})();
-</script>
-  <script>
-  /* ── Cursor — mouse-only (keyboard users keep native cursor) ── */
-  const dot = document.getElementById('cur-dot');
-  const ring = document.getElementById('cur-ring');
-  let mx=0,my=0,rx=0,ry=0,mouseActive=false;
-
-  /* spawn a ripple at (x,y) with given size */
-  function spawnRipple(x,y,size,cls){
-    const r = document.createElement('div');
-    r.className = cls;
-    r.style.cssText = `left:${x}px;top:${y}px;width:${size}px;height:${size}px`;
-    document.body.appendChild(r);
-    r.addEventListener('animationend',()=>r.remove(),{once:true});
-  }
-
-  /* throttled move ripples */
-  let lastRipple = 0;
-  document.addEventListener('mousemove',e=>{
-    if(document.documentElement.classList.contains('is-touch')) return;
-    if(!mouseActive){
-      mouseActive=true;
-      document.body.classList.add('has-mouse');
-      dot.style.display='block'; ring.style.display='block';
-    }
-    mx=e.clientX; my=e.clientY;
-    dot.style.left=mx+'px'; dot.style.top=my+'px';
-
-    const now = Date.now();
-    if(now - lastRipple > 90){
-      lastRipple = now;
-      const sz = 18 + Math.random()*14;
-      spawnRipple(mx, my, sz, 'cur-ripple');
-    }
-  });
-
-  /* click: layered water-drop ripples + sparks */
-  function spawnRing(x,y,size,cls){
-    const r=document.createElement('div');
-    r.className='cur-ring-burst '+cls;
-    r.style.cssText=`left:${x}px;top:${y}px;width:${size}px;height:${size}px`;
-    document.body.appendChild(r);
-    r.addEventListener('animationend',()=>r.remove(),{once:true});
-  }
-  function spawnSpark(x,y,dx,dy){
-    const s=document.createElement('div');
-    s.className='cur-spark';
-    s.style.cssText=`left:${x}px;top:${y}px;--sx:${dx}px;--sy:${dy}px`;
-    document.body.appendChild(s);
-    s.addEventListener('animationend',()=>s.remove(),{once:true});
-  }
-  document.addEventListener('mousedown', e=>{
-    if(document.documentElement.classList.contains('is-touch')) return;
-    if(window.matchMedia && window.matchMedia('(pointer:coarse)').matches) return;
-    const x=e.clientX, y=e.clientY;
-    /* soft glow */
-    spawnRipple(x, y, 120, 'cur-burst');
-    /* three concentric rings */
-    spawnRing(x, y, 60,  '');
-    spawnRing(x, y, 100, 'r2');
-    spawnRing(x, y, 150, 'r3');
-    /* 8 radial sparks */
-    for(let i=0;i<8;i++){
-      const a=(i/8)*Math.PI*2 + Math.random()*0.3;
-      const d=40+Math.random()*30;
-      spawnSpark(x, y, Math.cos(a)*d, Math.sin(a)*d);
-    }
-    document.body.classList.add('cur-click');
-    setTimeout(()=>document.body.classList.remove('cur-click'), 350);
-
-    /* button / link punch exaggeration */
-    const target = e.target.closest('a,button');
-    if(target){
-      target.classList.remove('btn-clicked');
-      target.offsetHeight;
-      target.classList.add('btn-clicked');
-      target.addEventListener('animationend',()=>target.classList.remove('btn-clicked'),{once:true});
-    }
-  });
-
-  /* Restore native cursor when keyboard is used */
-  document.addEventListener('keydown',e=>{
-    if(e.key==='Tab'){ mouseActive=false; document.body.classList.remove('has-mouse'); }
-  });
-  dot.style.display='none'; ring.style.display='none';
-
-  /* smooth ring follow (stops on touch — cursor hidden but rAF loop still costs battery) */
-  (function animRing(){
-    if(document.documentElement.classList.contains('is-touch')) return;
-    rx+=(mx-rx)*0.11; ry+=(my-ry)*0.11;
-    ring.style.left=rx+'px'; ring.style.top=ry+'px';
-    requestAnimationFrame(animRing);
-  })();
-
-  document.querySelectorAll('a,button,.rm-card,.svc-card,.mo,.dpg-item,.rv-card,.di-item').forEach(el=>{
-    el.addEventListener('mouseenter',()=>document.body.classList.add('cur-hover'));
-    el.addEventListener('mouseleave',()=>document.body.classList.remove('cur-hover'));
-  });
-
   /* ── Theme Toggle ── */
   const html = document.documentElement;
   const toggle = document.getElementById('themeToggle');
@@ -3506,81 +3257,6 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   </script>
 
   <script>
-  /* ── Ripple & Cursor Trail (desktop/mouse only) ── */
-  (function(){
-    /* Skip entirely on touch devices — no canvas, no rAF loop */
-    if(document.documentElement.classList.contains('is-touch')) return;
-    if(window.matchMedia && window.matchMedia('(pointer:coarse)').matches) return;
-    const cvs = document.createElement('canvas');
-    cvs.style.cssText = 'position:fixed;top:0;left:0;width:100%;height:100%;pointer-events:none;z-index:99998;mix-blend-mode:screen;';
-    document.body.appendChild(cvs);
-    const ctx = cvs.getContext('2d');
-    let W, H;
-    const resize = () => { W = cvs.width = window.innerWidth; H = cvs.height = window.innerHeight; };
-    resize();
-    window.addEventListener('resize', resize);
-
-    const ripples = [], particles = [];
-    let mx = -999, my = -999;
-
-    window.addEventListener('click', e => {
-      const x = e.clientX, y = e.clientY;
-      ripples.push({ x, y, r:0, maxR:12, alpha:1, speed:7, type:'flash', delay:0 });
-      [{maxR:60,speed:3.2,alpha:.9,delay:0},{maxR:105,speed:5,alpha:.7,delay:4},{maxR:155,speed:7,alpha:.5,delay:9},{maxR:220,speed:9,alpha:.3,delay:15}]
-        .forEach(cfg => ripples.push({ x, y, r:0, type:'ring', ...cfg }));
-      for (let i=0;i<18;i++){
-        const ang=(i/18)*Math.PI*2, spd=2+Math.random()*4;
-        particles.push({x,y,vx:Math.cos(ang)*spd,vy:Math.sin(ang)*spd,r:2+Math.random()*2,life:1,decay:.022+Math.random()*.018,trail:false});
-      }
-      for (let i=0;i<8;i++) particles.push({x,y,vx:(Math.random()-.5)*2,vy:(Math.random()-.5)*2-1,r:1.5,life:1,decay:.05+Math.random()*.04,trail:false});
-    });
-
-    window.addEventListener('mousemove', e => {
-      const dx=e.clientX-mx, dy=e.clientY-my;
-      if (dx*dx+dy*dy>50){ mx=e.clientX; my=e.clientY;
-        for(let i=0;i<4;i++) particles.push({x:mx+(Math.random()-.5)*6,y:my+(Math.random()-.5)*6,vx:(Math.random()-.5)*.5,vy:(Math.random()-.5)*.5-.5,r:1+Math.random()*2.5,life:1,decay:.045+Math.random()*.03,trail:true});
-      }
-    });
-
-    function loop(){
-      ctx.clearRect(0,0,W,H);
-      for(let i=ripples.length-1;i>=0;i--){
-        const rp=ripples[i];
-        if(rp.delay>0){rp.delay--;continue;}
-        rp.r+=rp.speed;
-        const prog=rp.r/rp.maxR;
-        if(prog>=1){ripples.splice(i,1);continue;}
-        if(rp.type==='flash'){
-          const a=rp.alpha*(1-prog);
-          const grd=ctx.createRadialGradient(rp.x,rp.y,0,rp.x,rp.y,rp.r);
-          grd.addColorStop(0,`rgba(180,240,255,${a})`);grd.addColorStop(.5,`rgba(77,194,232,${a*.6})`);grd.addColorStop(1,`rgba(77,194,232,0)`);
-          ctx.beginPath();ctx.arc(rp.x,rp.y,rp.r,0,Math.PI*2);ctx.fillStyle=grd;ctx.fill();
-        } else {
-          const ease=1-prog*prog, a=rp.alpha*ease;
-          ctx.beginPath();ctx.arc(rp.x,rp.y,rp.r,0,Math.PI*2);
-          ctx.strokeStyle=`rgba(77,194,232,${a})`;ctx.lineWidth=Math.max(2.5*(1-prog*.7),.5);ctx.stroke();
-          if(rp.r>20){ctx.beginPath();ctx.arc(rp.x,rp.y,rp.r*.65,0,Math.PI*2);ctx.strokeStyle=`rgba(140,220,248,${a*.35})`;ctx.lineWidth=1;ctx.stroke();}
-          if(prog<.3){const grd=ctx.createRadialGradient(rp.x,rp.y,0,rp.x,rp.y,rp.r);grd.addColorStop(0,'rgba(77,194,232,0)');grd.addColorStop(.75,'rgba(77,194,232,0)');grd.addColorStop(1,`rgba(77,194,232,${a*.18})`);ctx.beginPath();ctx.arc(rp.x,rp.y,rp.r,0,Math.PI*2);ctx.fillStyle=grd;ctx.fill();}
-        }
-      }
-      for(let i=particles.length-1;i>=0;i--){
-        const p=particles[i];
-        p.x+=p.vx;p.y+=p.vy;
-        if(!p.trail)p.vy+=.06;
-        p.life-=p.decay;
-        if(p.life<=0){particles.splice(i,1);continue;}
-        const a=p.life*(p.trail?.55:.85), r=Math.max(p.r*p.life,.3);
-        const grd=ctx.createRadialGradient(p.x,p.y,0,p.x,p.y,r*2.5);
-        grd.addColorStop(0,`rgba(190,245,255,${a})`);grd.addColorStop(.4,`rgba(77,194,232,${a*.7})`);grd.addColorStop(1,'rgba(77,194,232,0)');
-        ctx.beginPath();ctx.arc(p.x,p.y,r*2.5,0,Math.PI*2);ctx.fillStyle=grd;ctx.fill();
-      }
-      requestAnimationFrame(loop);
-    }
-    loop();
-  })();
-  </script>
-
-  <script>
 
 /* MOBILE-NAV-FIX-V2 */
 (function(){
@@ -3643,22 +3319,6 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     });
   });
 })();
-  </script>
-
-  <script>
-/* ── Remove cursor elements on touch / narrow screens ── */
-(function(){
-  if (!window.matchMedia || !window.matchMedia('(hover: hover) and (pointer: fine)').matches) {
-    ['cur-dot','cur-ring'].forEach(function(id){
-      var el = document.getElementById(id);
-      if (el) el.parentNode.removeChild(el);
-    });
-    document.querySelectorAll('.cur-ring-burst,.cur-ripple,.cur-burst').forEach(function(el){
-      el.parentNode.removeChild(el);
-    });
-  }
-})();
-
   </script>
 
   <script>
