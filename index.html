@@ -1262,9 +1262,9 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     .btn-book-sm.gold-cta { background: var(--gold); color: #1a1204; }
     .btn-book-sm.gold-cta:hover { background: #f0d17a; box-shadow: 0 6px 20px rgba(232,197,106,0.28); }
     /* Rooms: two-button row */
-    .rm-btns { display: flex; gap: 0.6rem; margin-top: 1.4rem; }
-    .rm-btns .rm-btn { flex: 1; margin-top: 0; }
-    .rm-btns .btn-book-sm { flex: 1; justify-content: center; }
+    .rm-btns { display: flex; align-items: stretch; gap: 0.6rem; margin-top: 1.4rem; }
+    .rm-btns .rm-btn { flex: 1; margin-top: 0; display: flex; align-items: center; justify-content: center; white-space: nowrap; }
+    .rm-btns .btn-book-sm { flex: 1; justify-content: center; white-space: nowrap; }
 
     /* Outline button variant used in gallery & reviews */
     .btn-outline-sm {
