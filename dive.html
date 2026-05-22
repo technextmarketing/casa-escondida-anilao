@@ -55,7 +55,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 /* ── HERO ── */
     .dv-hero{position:relative;height:100vh;height:100dvh;min-height:640px;overflow:hidden;display:flex;align-items:flex-end;}
     .dv-hero-photo{position:absolute;inset:0;}
-    .dv-hero-photo img{width:100%;height:100%;object-fit:cover;object-position:center 30%;filter:brightness(.65);}
+    .dv-hero-photo video,.dv-hero-photo img{width:100%;height:100%;object-fit:cover;object-position:center 30%;filter:brightness(.65);}
+    .dv-hero-photo img{position:absolute;inset:0;}
     .dv-hero-overlay{position:absolute;inset:0;background:linear-gradient(to top,rgba(4,8,15,.92) 0%,rgba(4,8,15,.4) 50%,rgba(4,8,15,.15) 100%);}
     [data-theme="day"] .dv-hero-overlay{background:linear-gradient(to top,rgba(30,60,90,.85) 0%,rgba(30,60,90,.35) 50%,transparent 100%);}
     .dv-hero-content{position:relative;z-index:2;padding:0 4rem 5rem;max-width:860px;}
@@ -471,7 +472,12 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <!-- ═══ HERO ═══ -->
 <section class="dv-hero">
   <div class="dv-hero-photo">
-    <img src="images/Nature Folder/Chromodoris willani.webp" alt="Chromodoris willani nudibranch on Anilao seafloor" loading="eager" fetchpriority="high" decoding="async" width="1920" height="1080" />
+    <video autoplay muted loop playsinline preload="auto" aria-hidden="true"
+           poster="images/Nature Folder/Chromodoris willani.webp">
+      <source src="images/dive-hero.mp4" type="video/mp4" />
+    </video>
+    <!-- Fallback image for browsers that can't play video -->
+    <img src="images/Nature Folder/Chromodoris willani.webp" alt="Scuba diving in Anilao, Batangas Philippines" loading="eager" fetchpriority="high" decoding="async" width="1920" height="1080" />
   </div>
   <div class="dv-hero-overlay"></div>
   <div class="dv-hero-content">
