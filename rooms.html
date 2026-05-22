@@ -95,7 +95,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     .room-card.featured:hover{border-color:rgba(232,197,106,.6);box-shadow:0 20px 60px rgba(0,0,0,.28),0 0 0 1px rgba(232,197,106,.2);}
 
     .rm-photo{position:relative;height:280px;overflow:hidden;flex-shrink:0;}
-    .rm-photo img{width:100%;height:100%;object-fit:cover;transition:transform .6s ease;}
+    .rm-photo img{width:100%;height:100%;object-fit:cover;object-position:center center;transition:transform .6s ease, opacity .4s ease;}
     .room-card:hover .rm-photo img{transform:scale(1.05);}
 
     .rm-badge-wrap{position:absolute;top:1rem;left:1rem;display:flex;gap:.5rem;flex-wrap:wrap;}
@@ -151,7 +151,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     .area-card { background:var(--card); border:1px solid var(--border); border-radius:6px; overflow:hidden; transition:transform .35s, box-shadow .35s, border-color .35s; }
     .area-card:hover { transform:translateY(-5px); box-shadow:0 18px 50px rgba(0,0,0,.22); border-color:var(--border2); }
     .area-photo { position:relative; height:300px; overflow:hidden; flex-shrink:0; }
-    .area-photo img { width:100%; height:100%; object-fit:cover; transition:transform .6s ease; display:block; }
+    .area-photo img { width:100%; height:100%; object-fit:cover; object-position:center center; transition:transform .6s ease, opacity .4s ease; display:block; }
     .area-card:hover .area-photo img { transform:scale(1.05); }
     .area-body { padding:1.8rem 2rem 2rem; }
     .area-label { font-size:.62rem; letter-spacing:.18em; text-transform:uppercase; color:var(--accent); margin-bottom:.45rem; display:flex; align-items:center; gap:.5rem; }
@@ -448,11 +448,11 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <!-- STANDARD ROOM — TWIN (2 single beds) -->
         <div class="room-card rv rv-d1" data-type="standard">
           <div class="rm-photo rm-gallery">
-            <img src="images/rooms/01.%20Standard%20Double%20or%20Twin%20Room/1.jpg" class="rm-slide active" alt="Standard Twin Room" loading="lazy" decoding="async" width="700" height="467" />
-            <img src="images/rooms/01.%20Standard%20Double%20or%20Twin%20Room/2.jpg" class="rm-slide" alt="Standard Twin Room" loading="lazy" decoding="async" width="700" height="467" />
-            <img src="images/rooms/01.%20Standard%20Double%20or%20Twin%20Room/3.jpg" class="rm-slide" alt="Standard Twin Room" loading="lazy" decoding="async" width="700" height="467" />
-            <img src="images/rooms/01.%20Standard%20Double%20or%20Twin%20Room/4.jpg" class="rm-slide" alt="Standard Twin Room" loading="lazy" decoding="async" width="700" height="467" />
-            <img src="images/rooms/01.%20Standard%20Double%20or%20Twin%20Room/628968079.jpg" class="rm-slide" alt="Standard Twin Room" loading="lazy" decoding="async" width="700" height="467" />
+            <img src="images/rooms/01.%20Standard%20Double%20or%20Twin%20Room/1.jpg" class="rm-slide active" alt="Standard Twin Room" loading="eager" decoding="async" width="960" height="720" />
+            <img src="images/rooms/01.%20Standard%20Double%20or%20Twin%20Room/2.jpg" class="rm-slide" alt="Standard Twin Room" loading="eager" decoding="async" width="1443" height="720" />
+            <img src="images/rooms/01.%20Standard%20Double%20or%20Twin%20Room/3.jpg" class="rm-slide" alt="Standard Twin Room" loading="eager" decoding="async" width="2000" height="1023" />
+            <img src="images/rooms/01.%20Standard%20Double%20or%20Twin%20Room/4.jpg" class="rm-slide" alt="Standard Twin Room" loading="eager" decoding="async" width="960" height="720" style="object-position:center 60%;" />
+            <img src="images/rooms/01.%20Standard%20Double%20or%20Twin%20Room/628968079.jpg" class="rm-slide" alt="Standard Twin Room" loading="eager" decoding="async" width="1024" height="768" />
             <button class="rm-gallery-btn rm-prev" aria-label="Previous photo">&#8249;</button>
             <button class="rm-gallery-btn rm-next" aria-label="Next photo">&#8250;</button>
             <div class="rm-dots">
@@ -501,10 +501,10 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <!-- STANDARD ROOM — DOUBLE (1 double bed) -->
         <div class="room-card rv rv-d2" data-type="standard">
           <div class="rm-photo rm-gallery">
-            <img src="images/rooms/02.%20Deluxe%20Double%20or%20Twin%20Room/628966346.jpg" class="rm-slide active" alt="Deluxe Double Room" loading="lazy" decoding="async" width="700" height="467" />
-            <img src="images/rooms/02.%20Deluxe%20Double%20or%20Twin%20Room/628966348.jpg" class="rm-slide" alt="Deluxe Double Room" loading="lazy" decoding="async" width="700" height="467" />
-            <img src="images/rooms/02.%20Deluxe%20Double%20or%20Twin%20Room/628966351.jpg" class="rm-slide" alt="Deluxe Double Room" loading="lazy" decoding="async" width="700" height="467" />
-            <img src="images/rooms/02.%20Deluxe%20Double%20or%20Twin%20Room/628966356.jpg" class="rm-slide" alt="Deluxe Double Room" loading="lazy" decoding="async" width="700" height="467" />
+            <img src="images/rooms/02.%20Deluxe%20Double%20or%20Twin%20Room/628966346.jpg" class="rm-slide active" alt="Deluxe Double Room" loading="eager" decoding="async" width="1024" height="768" />
+            <img src="images/rooms/02.%20Deluxe%20Double%20or%20Twin%20Room/628966348.jpg" class="rm-slide" alt="Deluxe Double Room" loading="eager" decoding="async" width="1024" height="699" />
+            <img src="images/rooms/02.%20Deluxe%20Double%20or%20Twin%20Room/628966351.jpg" class="rm-slide" alt="Deluxe Double Room" loading="eager" decoding="async" width="1024" height="768" />
+            <img src="images/rooms/02.%20Deluxe%20Double%20or%20Twin%20Room/628966356.jpg" class="rm-slide" alt="Deluxe Double Room" loading="eager" decoding="async" width="1024" height="646" />
             <button class="rm-gallery-btn rm-prev" aria-label="Previous photo">&#8249;</button>
             <button class="rm-gallery-btn rm-next" aria-label="Next photo">&#8250;</button>
             <div class="rm-dots">
@@ -553,11 +553,11 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <!-- BEACH DELUXE ROOM — featured -->
         <div class="room-card featured rv rv-d1" data-type="deluxe">
           <div class="rm-photo rm-gallery">
-            <img src="images/rooms/03.%20Suite%20with%20Sea%20View/Suiteroom_New.jpg" class="rm-slide active" alt="Suite with Sea View" loading="lazy" decoding="async" width="700" height="467" />
-            <img src="images/rooms/03.%20Suite%20with%20Sea%20View/Suite%20Room%201.jpg" class="rm-slide" alt="Suite with Sea View" loading="lazy" decoding="async" width="700" height="467" />
-            <img src="images/rooms/03.%20Suite%20with%20Sea%20View/628960767.jpg" class="rm-slide" alt="Suite with Sea View" loading="lazy" decoding="async" width="700" height="467" />
-            <img src="images/rooms/03.%20Suite%20with%20Sea%20View/628960206.jpg" class="rm-slide" alt="Suite with Sea View" loading="lazy" decoding="async" width="700" height="467" />
-            <img src="images/rooms/03.%20Suite%20with%20Sea%20View/628960210.jpg" class="rm-slide" alt="Suite with Sea View" loading="lazy" decoding="async" width="700" height="467" />
+            <img src="images/rooms/03.%20Suite%20with%20Sea%20View/Suiteroom_New.jpg" class="rm-slide active" alt="Suite with Sea View" loading="eager" decoding="async" width="4032" height="3024" />
+            <img src="images/rooms/03.%20Suite%20with%20Sea%20View/Suite%20Room%201.jpg" class="rm-slide" alt="Suite with Sea View" loading="eager" decoding="async" width="2048" height="974" />
+            <img src="images/rooms/03.%20Suite%20with%20Sea%20View/628960767.jpg" class="rm-slide" alt="Suite with Sea View" loading="eager" decoding="async" width="1024" height="671" />
+            <img src="images/rooms/03.%20Suite%20with%20Sea%20View/628960206.jpg" class="rm-slide" alt="Suite with Sea View" loading="eager" decoding="async" width="1024" height="691" />
+            <img src="images/rooms/03.%20Suite%20with%20Sea%20View/628960210.jpg" class="rm-slide" alt="Suite with Sea View" loading="eager" decoding="async" width="1024" height="768" />
             <button class="rm-gallery-btn rm-prev" aria-label="Previous photo">&#8249;</button>
             <button class="rm-gallery-btn rm-next" aria-label="Next photo">&#8250;</button>
             <div class="rm-dots">
@@ -631,11 +631,11 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <!-- BAR AREA -->
         <div class="area-card rv rv-d1">
           <div class="area-photo rm-gallery">
-            <img src="images/rooms/Bar%20Area/Bar%20Area.jpg" class="rm-slide active" alt="Casa Escondida Bar and Lounge" loading="lazy" decoding="async" width="700" height="467" />
-            <img src="images/rooms/Bar%20Area/470826413_1107744471358216_6825330427874791703_n.jpg" class="rm-slide" alt="Bar Area" loading="lazy" decoding="async" width="700" height="467" />
-            <img src="images/rooms/Bar%20Area/470866036_1107744354691561_6022236390118099751_n.jpg" class="rm-slide" alt="Bar Area" loading="lazy" decoding="async" width="700" height="467" />
-            <img src="images/rooms/Bar%20Area/471129835_1107744568024873_3129222903791134298_n.jpg" class="rm-slide" alt="Bar Area" loading="lazy" decoding="async" width="700" height="467" />
-            <img src="images/rooms/Bar%20Area/IMG_3019.jpeg" class="rm-slide" alt="Bar Area" loading="lazy" decoding="async" width="700" height="467" />
+            <img src="images/rooms/Bar%20Area/Bar%20Area.jpg" class="rm-slide active" alt="Casa Escondida Bar and Lounge" loading="eager" decoding="async" width="2048" height="1536" />
+            <img src="images/rooms/Bar%20Area/470826413_1107744471358216_6825330427874791703_n.jpg" class="rm-slide" alt="Bar Area" loading="eager" decoding="async" width="2048" height="1536" />
+            <img src="images/rooms/Bar%20Area/470866036_1107744354691561_6022236390118099751_n.jpg" class="rm-slide" alt="Bar Area" loading="eager" decoding="async" width="2048" height="1536" />
+            <img src="images/rooms/Bar%20Area/471129835_1107744568024873_3129222903791134298_n.jpg" class="rm-slide" alt="Bar Area" loading="eager" decoding="async" width="2048" height="1536" />
+            <img src="images/rooms/Bar%20Area/IMG_3019.jpeg" class="rm-slide" alt="Bar Area" loading="eager" decoding="async" width="4032" height="3024" />
             <button class="rm-gallery-btn rm-prev" aria-label="Previous photo">&#8249;</button>
             <button class="rm-gallery-btn rm-next" aria-label="Next photo">&#8250;</button>
             <div class="rm-dots">
@@ -663,11 +663,11 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <!-- BEACH DECK -->
         <div class="area-card rv rv-d2">
           <div class="area-photo rm-gallery">
-            <img src="images/rooms/Beach%20Deck/Beach%20Deck.jpg" class="rm-slide active" alt="Casa Escondida Beach Deck" loading="lazy" decoding="async" width="700" height="467" />
-            <img src="images/rooms/Beach%20Deck/Beach_Deck2.jpeg" class="rm-slide" alt="Beach Deck" loading="lazy" decoding="async" width="700" height="467" />
-            <img src="images/rooms/Beach%20Deck/IMG_3193.jpeg" class="rm-slide" alt="Beach Deck" loading="lazy" decoding="async" width="700" height="467" />
-            <img src="images/rooms/Beach%20Deck/IMG_3194.jpeg" class="rm-slide" alt="Beach Deck" loading="lazy" decoding="async" width="700" height="467" />
-            <img src="images/rooms/Beach%20Deck/IMG_3209.jpeg" class="rm-slide" alt="Beach Deck" loading="lazy" decoding="async" width="700" height="467" />
+            <img src="images/rooms/Beach%20Deck/Beach%20Deck.jpg" class="rm-slide active" alt="Casa Escondida Beach Deck" loading="eager" decoding="async" width="2048" height="1536" />
+            <img src="images/rooms/Beach%20Deck/Beach_Deck2.jpeg" class="rm-slide" alt="Beach Deck" loading="eager" decoding="async" width="2048" height="1536" />
+            <img src="images/rooms/Beach%20Deck/IMG_3193.jpeg" class="rm-slide" alt="Beach Deck" loading="eager" decoding="async" width="2048" height="1536" />
+            <img src="images/rooms/Beach%20Deck/IMG_3194.jpeg" class="rm-slide" alt="Beach Deck" loading="eager" decoding="async" width="2048" height="1536" />
+            <img src="images/rooms/Beach%20Deck/IMG_3209.jpeg" class="rm-slide" alt="Beach Deck" loading="eager" decoding="async" width="2048" height="1536" />
             <button class="rm-gallery-btn rm-prev" aria-label="Previous photo">&#8249;</button>
             <button class="rm-gallery-btn rm-next" aria-label="Next photo">&#8250;</button>
             <div class="rm-dots">
