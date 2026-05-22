@@ -146,7 +146,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
             "description": "Anilao may host more than 800 nudibranch species — more than any comparable area worldwide. This visual field guide covers 20 of the most-photographed sea slugs in Batangas waters.",
             "datePublished": "2026-04-15",
             "dateModified": "2026-04-15",
-            "url": "https://www.casaescondida-anilao.com/blog-post.html?id=1",
+            "url": "https://www.casaescondida-anilao.com/blog/nudibranchs-anilao.html",
             "image": "https://www.casaescondida-anilao.com/images/Nature%20Folder/Pikachu%20nudibranch.jpg",
             "author": {"@type": "Organization", "name": "Casa Escondida Anilao"},
             "publisher": {"@type": "Organization", "name": "Casa Escondida Anilao Resort & Dive Center", "url": "https://www.casaescondida-anilao.com/"}
@@ -157,7 +157,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
             "description": "Everything you need to know to get from Manila or NAIA to Casa Escondida Anilao — bus, private car, and van transfer options covered.",
             "datePublished": "2026-04-10",
             "dateModified": "2026-04-10",
-            "url": "https://www.casaescondida-anilao.com/blog-post.html?id=2",
+            "url": "https://www.casaescondida-anilao.com/blog/manila-to-anilao-transfer-guide.html",
             "image": "https://www.casaescondida-anilao.com/images/Nature%20Folder/Hawksbill%20sea%20turtle.jpg",
             "author": {"@type": "Organization", "name": "Casa Escondida Anilao"},
             "publisher": {"@type": "Organization", "name": "Casa Escondida Anilao Resort & Dive Center", "url": "https://www.casaescondida-anilao.com/"}
@@ -168,7 +168,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
             "description": "A complete guide to night diving in Anilao, Batangas — what marine life to look for, safety tips, and how to book a night dive at Casa Escondida.",
             "datePublished": "2026-03-15",
             "dateModified": "2026-03-15",
-            "url": "https://www.casaescondida-anilao.com/blog-post.html?id=6",
+            "url": "https://www.casaescondida-anilao.com/blog/night-diving-anilao.html",
             "image": "https://www.casaescondida-anilao.com/images/Nature%20Folder/Blue%20Ribbon%20Eel%20(Rhinomuraena%20quaesita).jpg",
             "author": {"@type": "Organization", "name": "Casa Escondida Anilao"},
             "publisher": {"@type": "Organization", "name": "Casa Escondida Anilao Resort & Dive Center", "url": "https://www.casaescondida-anilao.com/"}
@@ -179,7 +179,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
             "description": "Expert tips on camera settings, housing choices, and the best macro subjects to photograph on your first dive trip to Anilao, Batangas.",
             "datePublished": "2026-03-05",
             "dateModified": "2026-03-05",
-            "url": "https://www.casaescondida-anilao.com/blog-post.html?id=8",
+            "url": "https://www.casaescondida-anilao.com/blog/underwater-photography-tips-anilao.html",
             "image": "https://www.casaescondida-anilao.com/images/Nature%20Folder/Ornate%20Ghost%20Pipefish%20(Solenostomus%20paradoxus).jpg",
             "author": {"@type": "Organization", "name": "Casa Escondida Anilao"},
             "publisher": {"@type": "Organization", "name": "Casa Escondida Anilao Resort & Dive Center", "url": "https://www.casaescondida-anilao.com/"}
@@ -190,7 +190,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
             "description": "A step-by-step walkthrough of the PADI Open Water Diver course at Casa Escondida — what happens each day, what you'll learn, and what to bring.",
             "datePublished": "2026-02-15",
             "dateModified": "2026-02-15",
-            "url": "https://www.casaescondida-anilao.com/blog-post.html?id=11",
+            "url": "https://www.casaescondida-anilao.com/blog/padi-open-water-course-casa-escondida.html",
             "image": "https://www.casaescondida-anilao.com/images/Nature%20Folder/Sea%20Anemone%20Coral%20Reef.jpg",
             "author": {"@type": "Organization", "name": "Casa Escondida Anilao"},
             "publisher": {"@type": "Organization", "name": "Casa Escondida Anilao Resort & Dive Center", "url": "https://www.casaescondida-anilao.com/"}
@@ -300,7 +300,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <p class="bf-excerpt">Anilao hosts over 50 named dive sites packed inside a coastline barely 10 km long — from the seamount walls of Kirby's Rock to the silty macro heaven of Secret Bay. Whether you're chasing nudibranchs, frogfish, or open-water pelagics, this guide maps every must-dive and tells you exactly what to expect below the surface.</p>
         <div class="bf-foot">
           <span class="bf-date">April 20, 2026 · 8 min read</span>
-          <a href="blog-post.html?id=1" class="bf-more">Read Article →</a>
+          <a href="blog/best-dive-sites-anilao.html" class="bf-more">Read Article →</a>
         </div>
       </div>
     </article>
@@ -500,6 +500,15 @@ if (dot && ring) {
 /* ════════════════════════════════════════
    BLOG DATA — 19 posts (post #1 is featured)
    ════════════════════════════════════════ */
+const SLUG_MAP = {
+  1:'best-dive-sites-anilao',2:'nudibranchs-anilao',3:'manila-to-anilao-transfer-guide',
+  4:'island-bbq-casa-escondida',5:'what-to-pack-batangas-diving',6:'protecting-coral-triangle',
+  7:'night-diving-anilao',8:'frogfish-anilao',9:'underwater-photography-tips-anilao',
+  10:'best-time-dive-anilao',11:'anilao-underwater-festival-2026',12:'padi-open-water-course-casa-escondida',
+  13:'pygmy-seahorses-anilao',14:'batangas-coral-restoration-2025',15:'full-day-casa-escondida',
+  16:'kirbys-rock-anilao',17:'macro-photography-settings-anilao',18:'anilao-dive-trip-cost',
+  19:'whale-sharks-batangas',20:'new-dive-deck-equipment-2026'
+};
 const POSTS = [
   {
     id: 2,
@@ -810,14 +819,14 @@ function renderPosts() {
   </div>
   <div class="bc-body">
     <span class="bc-cat ${p.cat}" style="color:${colour}">${p.catLabel}</span>
-    <h3 class="bc-title"><a href="blog-post.html?id=${p.id}" style="color:inherit;text-decoration:none;">${p.title}</a></h3>
+    <h3 class="bc-title"><a href="blog/${SLUG_MAP[p.id]}.html" style="color:inherit;text-decoration:none;">${p.title}</a></h3>
     <p class="bc-excerpt">${p.excerpt}</p>
     <div class="bc-foot">
       <div class="bc-meta">
         <span class="bc-date">${p.dateLabel}</span>
         <span class="bc-read">${p.read}</span>
       </div>
-      <a href="blog-post.html?id=${p.id}" class="bc-more">Read →</a>
+      <a href="blog/${SLUG_MAP[p.id]}.html" class="bc-more">Read →</a>
     </div>
   </div>
 </article>`;
