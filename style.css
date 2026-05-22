@@ -12,8 +12,7 @@
       --text:#f0f4f8;--text2:#94aab8;--text3:rgba(148,170,184,0.6);
       --accent:#4dc2e8;--accent-d:#2e9fc4;--accent-g:rgba(77,194,232,0.14);
       --gold:#e8c56a;--nav-bg:rgba(4,8,15,0.92);
-      background-image:linear-gradient(rgba(4,8,15,0.82),rgba(4,8,15,0.82)),url('images/background/594413266_1405022098297117_5892045775093709556_n.jpg');
-      background-size:cover;background-attachment:scroll;background-position:center;
+      background-image:none;
       background-color:#04080f;
     }
     [data-theme="night"] body{background:transparent;}

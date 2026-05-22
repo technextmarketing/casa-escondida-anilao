@@ -60,6 +60,11 @@ html, body, [data-theme="night"], [data-theme="day"], .pad, .hero, .pg, section 
   background-attachment: scroll !important;
 }
 
+/* ── 6b. REMOVE faint document-level background images on every page ── */
+html, body, [data-theme="night"], [data-theme="day"] {
+  background-image: none !important;
+}
+
 /* ── 7. REDUCE backdrop-filter to NAV ONLY (keeps premium nav blur,
        removes GPU-expensive blur from cards and panels) ── */
 .card, .svc-card, .rm-card, .rv-card, .di-stat, .di-card,
