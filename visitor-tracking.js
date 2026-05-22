@@ -130,18 +130,71 @@
     return 'desktop';
   }
 
-  /* ── Forward to Google Analytics if present ── */
+  /* ── Send to Google Analytics (GA4) — full integration ── */
   if (typeof window.gtag === 'function') {
     try {
+      var GA_ID = 'G-BHGE4494ZY';
+      var isFirstVisit = data.total_pageviews === 1;
+      var firstVisitDate = (data.first_visit || '').substring(0, 10);
+
+      /* 1) Set User-ID via gtag('set') — no extra page_view triggered */
+      window.gtag('set', { 'user_id': data.visitor_id });
+
+      /* 2) Set User Properties (persistent — attach to ALL subsequent events) */
+      window.gtag('set', 'user_properties', {
+        ce_visitor_id: data.visitor_id,
+        device_type: data.device_type,
+        language_pref: data.language || 'unknown',
+        timezone: data.timezone || 'unknown',
+        first_visit_date: firstVisitDate,
+        first_referrer: data.referrer || 'direct',
+        first_landing: data.landing_page || '/',
+        first_utm_source: (data.utm && data.utm.utm_source) || 'direct',
+        first_utm_medium: (data.utm && data.utm.utm_medium) || 'none',
+        first_utm_campaign: (data.utm && data.utm.utm_campaign) || 'none',
+        is_returning: isFirstVisit ? 'false' : 'true',
+        visitor_tier: bucketTier(data.total_pageviews)
+      });
+
+      /* 3) Fire dedicated visitor_view event (custom data alongside GA's auto page_view) */
       window.gtag('event', 'visitor_view', {
         visitor_id: data.visitor_id,
         session_count: data.session_count,
         total_pageviews: data.total_pageviews,
-        is_first_visit: data.total_pageviews === 1,
+        is_first_visit: isFirstVisit,
         device_type: data.device_type,
-        page_path: currentPath
+        referrer: data.referrer,
+        landing_page: data.landing_page,
+        utm_source: (data.utm && data.utm.utm_source) || '',
+        utm_medium: (data.utm && data.utm.utm_medium) || '',
+        utm_campaign: (data.utm && data.utm.utm_campaign) || ''
       });
+
+      /* 4) Special event on first-ever visit */
+      if (isFirstVisit) {
+        window.gtag('event', 'first_visit_enriched', {
+          visitor_id: data.visitor_id,
+          referrer: data.referrer,
+          landing_page: data.landing_page,
+          device_type: data.device_type,
+          utm_source: (data.utm && data.utm.utm_source) || 'direct'
+        });
+      }
     } catch (e) { /* GA failed, no problem */ }
+  }
+
+  /* ── Helpers for GA values ── */
+  function bucketTier(pv) {
+    if (pv <= 1) return '1_new';
+    if (pv <= 5) return '2_browsing';
+    if (pv <= 20) return '3_engaged';
+    if (pv <= 50) return '4_loyal';
+    return '5_super_loyal';
+  }
+  function daysSince(iso) {
+    if (!iso) return 0;
+    var ms = Date.now() - new Date(iso).getTime();
+    return Math.floor(ms / (1000 * 60 * 60 * 24));
   }
 
   /* ── Expose for debugging / dashboards ── */
