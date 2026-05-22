@@ -108,17 +108,68 @@ html, body,
 /* Keep blur on these (premium feel, low cost): */
 /* #nav, .mobile-nav, .lb, .modal, .eco-modal — untouched */
 
-/* ── 7b. STANDARDIZE all hero sections to full viewport height ── */
-.r-hero, .dv-hero, .g-hero, .loc-hero, .ap-hero, #hero, .blog-hero,
+/* ── 7b. STANDARDIZE all hero sections — full viewport, centered ── */
+.r-hero, .dv-hero, .g-hero, .loc-hero, .ap-hero, .pg-hero, #hero, .blog-hero,
 section[class*="-hero"]:not(.loc-hero-content):not(.dv-hero-content):not(.ap-hero-content) {
   min-height: 100vh !important;
   min-height: 100dvh !important;
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  justify-content: center !important;
+  text-align: center !important;
+  position: relative !important;
 }
+
+/* Center the inner content container too */
+.r-hero > *, .g-hero > *, .pg-hero > *,
+.r-hero .c, .g-hero .c, .pg-hero .c {
+  text-align: center !important;
+  max-width: 900px !important;
+  margin: 0 auto !important;
+}
+
+/* Center any eyebrow / line decorations inside hero */
+.pg-hero .eyebrow, .r-hero .r-eyebrow, .g-hero .g-eyebrow,
+.r-hero .eyebrow, .g-hero .eyebrow, [class*="-hero"] .eyebrow {
+  justify-content: center !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+}
+
+/* Center paragraph descriptions in hero */
+.r-hero p, .g-hero p, .pg-hero p, [class*="-hero"] > .c p {
+  text-align: center !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+  max-width: 640px !important;
+}
+
 @media (max-width: 768px) {
-  .r-hero, .dv-hero, .g-hero, .loc-hero, .ap-hero, #hero, .blog-hero,
+  .r-hero, .dv-hero, .g-hero, .loc-hero, .ap-hero, .pg-hero, #hero, .blog-hero,
   section[class*="-hero"]:not(.loc-hero-content):not(.dv-hero-content):not(.ap-hero-content) {
     min-height: 560px !important;
   }
+}
+
+/* Apply standardized title styles to inline h1 in .pg-hero (blog.html) */
+.pg-hero h1 {
+  font-family: 'Playfair Display', serif !important;
+  font-size: clamp(2.4rem, 5vw, 4rem) !important;
+  font-weight: 400 !important;
+  line-height: 1.05 !important;
+  color: #fff !important;
+  margin-bottom: 1.2rem !important;
+}
+.pg-hero h1 em {
+  font-style: italic !important;
+  background: linear-gradient(90deg, var(--accent) 30%, var(--gold) 55%, var(--accent) 70%) !important;
+  background-size: 100% auto !important;
+  -webkit-background-clip: text !important;
+  background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
+  color: transparent !important;
+  animation: none !important;
 }
 
 /* ── 8. RESPECT prefers-reduced-motion (accessibility) ── */
