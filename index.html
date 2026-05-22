@@ -3067,6 +3067,10 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   if(dateInput){
     const today = new Date().toISOString().split('T')[0];
     dateInput.setAttribute('min', today);
+    /* Auto-open the native calendar picker on click */
+    dateInput.addEventListener('click', function(){
+      try { this.showPicker(); } catch(e) {}
+    });
   }
   if(bookingForm){
     bookingForm.addEventListener('submit', e=>{
@@ -3402,6 +3406,10 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   /* Set minimum check-in date to today */
   if(dateInp){
     dateInp.setAttribute('min', new Date().toISOString().split('T')[0]);
+    /* Auto-open the native calendar picker on click */
+    dateInp.addEventListener('click', function(){
+      try { this.showPicker(); } catch(e) {}
+    });
   }
 
   function openModal(){
