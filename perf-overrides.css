@@ -60,25 +60,15 @@ html, body, [data-theme="night"], [data-theme="day"], .pad, .hero, .pg, section 
   background-attachment: scroll !important;
 }
 
-/* ── 6b. REMOVE document-level AND hero-level background images everywhere ── */
+/* ── 6b. REMOVE only document-level (html/body) background image ── */
+/* Hero / booking / photo backgrounds are intentionally kept. */
 html, body,
-[data-theme="night"], [data-theme="day"],
-.r-hero, .dv-hero, .dv-hero-bg, .dv-hero-photo,
-.loc-hero, .gal-hero, .bf-hero, .ap-hero, .ap-hero-bg,
-.hero, .hero-photo, .hero-bg, .page-hero,
-.booking-bg, .booking-section, .b-section,
-.dining-photos, .about-photos, .pad-bg, .pg-bg,
-section[class*="-hero"], div[class*="-hero"], div[class*="-bg"] {
+[data-theme="night"]:not(.r-hero):not(.dv-hero):not(.loc-hero):not(.hero):not([class*="-hero"]),
+[data-theme="day"]:not(.r-hero):not(.dv-hero):not(.loc-hero):not(.hero):not([class*="-hero"]) {
   background-image: none !important;
 }
-
-/* Also kill it on the ::before/::after pseudo-elements (some heroes use them) */
-.r-hero::before, .dv-hero::before, .loc-hero::before, .gal-hero::before,
-.bf-hero::before, .ap-hero::before, .hero::before, .hero-photo::before,
-.booking-bg::before, .page-hero::before,
-[class*="-hero"]::before, [class*="-bg"]::before {
-  background-image: none !important;
-}
+/* The above pattern means: only kill background-image when the theme attr
+   is on the root html/body — not when applied to hero sections themselves. */
 
 /* ── 7. REDUCE backdrop-filter to NAV ONLY (keeps premium nav blur,
        removes GPU-expensive blur from cards and panels) ── */
