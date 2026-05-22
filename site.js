@@ -11,16 +11,24 @@
   /* ── THEME TOGGLE ─────────────────────────────────────── */
   (function () {
     var html = document.documentElement;
-    var btn = document.getElementById('themeBtn');
-    if (!btn) return;
-    var moon = document.getElementById('icon-moon');
-    var sun = document.getElementById('icon-sun');
+    var oldBtn = document.getElementById('themeBtn');
+    if (!oldBtn) return;
+
+    /* Clone the button to strip any inline-attached duplicate listeners
+       (every page has an inline handler AND this deferred script —
+       cloning removes the inline one so only this handler fires). */
+    var btn = oldBtn.cloneNode(true);
+    oldBtn.parentNode.replaceChild(btn, oldBtn);
+
+    var moon  = document.getElementById('icon-moon');
+    var sun   = document.getElementById('icon-sun');
     var label = document.getElementById('themeLabel');
+
     function sync() {
       var n = html.getAttribute('data-theme') === 'night';
-      if (moon) moon.style.display = n ? 'block' : 'none';
-      if (sun) sun.style.display = n ? 'none' : 'block';
-      if (label) label.textContent = n ? 'Night' : 'Day';
+      if (moon)  moon.style.display  = n ? 'block' : 'none';
+      if (sun)   sun.style.display   = n ? 'none'  : 'block';
+      if (label) label.textContent   = n ? 'Night' : 'Day';
     }
     sync();
     btn.addEventListener('click', function () {

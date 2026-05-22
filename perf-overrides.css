@@ -15,7 +15,19 @@
   visibility: hidden !important;
 }
 
-/* ── 2. KILL specific looping decorative animations ── */
+/* ── 2. KILL all continuous text/icon shimmer animations ── */
+.dv-h1 em,
+.hero-h1 em,
+.sec-title em {
+  animation: none !important;
+  background: none !important;
+  -webkit-text-fill-color: currentColor !important;
+  color: var(--accent) !important;
+  background-clip: unset !important;
+  -webkit-background-clip: unset !important;
+}
+
+/* ── 3. KILL specific looping decorative animations ── */
 [class*="diver"],
 [class*="aura"],
 .eyebrow::before,
@@ -29,7 +41,7 @@
   animation: none !important;
 }
 
-/* ── 3. KILL pulse / ping / glow loops ── */
+/* ── 4. KILL pulse / ping / glow loops ── */
 .pulse-dot,
 .live-dot,
 [class*="pulse"],
@@ -37,18 +49,18 @@
   animation: none !important;
 }
 
-/* ── 4. KILL progress bar shimmer ── */
+/* ── 5. KILL progress bar shimmer ── */
 .rb-fill::after,
 .progress-shimmer {
   animation: none !important;
 }
 
-/* ── 5. REMOVE background-attachment:fixed (causes scroll jank) ── */
+/* ── 6. REMOVE background-attachment:fixed (causes scroll jank) ── */
 html, body, [data-theme="night"], [data-theme="day"], .pad, .hero, .pg, section {
   background-attachment: scroll !important;
 }
 
-/* ── 5b. REMOVE only document-level (html/body) background image ── */
+/* ── 6b. REMOVE only document-level (html/body) background image ── */
 /* Hero / booking / photo backgrounds are intentionally kept. */
 html, body,
 [data-theme="night"]:not(.r-hero):not(.dv-hero):not(.loc-hero):not(.hero):not([class*="-hero"]),
@@ -58,7 +70,7 @@ html, body,
 /* The above pattern means: only kill background-image when the theme attr
    is on the root html/body — not when applied to hero sections themselves. */
 
-/* ── 6. REDUCE backdrop-filter to NAV ONLY (keeps premium nav blur,
+/* ── 7. REDUCE backdrop-filter to NAV ONLY (keeps premium nav blur,
        removes GPU-expensive blur from cards and panels) ── */
 .card, .svc-card, .rm-card, .rv-card, .di-stat, .di-card,
 .bf-info, .bf-thumb, .ap-cta, .ap-toc, .tip-box,
@@ -72,7 +84,7 @@ html, body,
 /* Keep blur on these (premium feel, low cost): */
 /* #nav, .mobile-nav, .lb, .modal, .eco-modal — untouched */
 
-/* ── 7. RESPECT prefers-reduced-motion (accessibility) ── */
+/* ── 8. RESPECT prefers-reduced-motion (accessibility) ── */
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after {
     animation-duration: 0.01ms !important;
@@ -82,5 +94,10 @@ html, body,
   }
 }
 
-/* ── 8. Image entrance: keep the fade-in but no extra effects ── */
+/* ── 9. Image entrance: keep the fade-in but no extra effects ── */
 img { animation: none !important; }
+
+/* ── 10. Hero subtle entrance allowed once via .heroIn (no loop) ── */
+.dv-eyebrow, .dv-h1, .dv-sub, .dv-hero-btns, .dv-hero-stats {
+  /* Keep entrance fade (runs once via 'forwards') */
+}
