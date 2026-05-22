@@ -1,0 +1,197 @@
+/* ═══════════════════════════════════════════════════════
+   BLOG ARTICLE STYLES — Casa Escondida Anilao
+   Used by all static blog post pages in /blog/
+   ═══════════════════════════════════════════════════════ */
+
+/* ── HERO ── */
+.ap-hero {
+  min-height: 360px;
+  padding-top: 5rem !important;
+  margin-top: 0;
+}
+@media (max-width: 768px) {
+  .ap-hero { min-height: 280px; padding-top: 4.5rem !important; }
+  .ap-hero-content { padding: 2rem 1.5rem 2rem !important; }
+  .ap-hero h1 { font-size: 1.5rem !important; }
+}
+
+/* ── ARTICLE CONTENT ── */
+.ap-article-content {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 1.02rem;
+  line-height: 1.85;
+  color: var(--text, var(--text-primary, #2a3640));
+}
+
+.ap-article-content > * + * { margin-top: 1.25rem; }
+
+.ap-article-content .ap-lead {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: 1.22rem;
+  line-height: 1.7;
+  font-style: italic;
+  font-weight: 300;
+  color: var(--text, var(--text-primary, #2a3640));
+  margin-bottom: 2.2rem;
+  padding-bottom: 1.6rem;
+  border-bottom: 1px solid var(--border, rgba(0,0,0,.08));
+}
+
+.ap-article-content h2 {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: clamp(1.45rem, 2.5vw, 1.85rem);
+  font-weight: 400;
+  line-height: 1.25;
+  color: var(--text, var(--text-primary, #1a2530));
+  margin-top: 3rem !important;
+  margin-bottom: 1rem !important;
+  letter-spacing: -.01em;
+}
+
+.ap-article-content h3 {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: 1.25rem;
+  font-weight: 500;
+  margin-top: 2.2rem !important;
+  margin-bottom: .8rem !important;
+  color: var(--text, var(--text-primary, #1a2530));
+}
+
+.ap-article-content p {
+  margin-bottom: 1.1rem;
+}
+
+.ap-article-content strong {
+  font-weight: 600;
+  color: var(--text, var(--text-primary, #1a2530));
+}
+
+.ap-article-content em {
+  font-style: italic;
+}
+
+.ap-article-content a {
+  color: var(--accent, #1a6b98);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  text-decoration-thickness: 1px;
+  transition: color .2s;
+}
+.ap-article-content a:hover {
+  color: var(--accent-d, var(--accent-dark, #155880));
+}
+
+/* ── LISTS ── */
+.ap-article-content ul,
+.ap-article-content ol {
+  margin: 1.25rem 0 1.4rem 0;
+  padding-left: 1.6rem;
+}
+.ap-article-content ul li,
+.ap-article-content ol li {
+  margin-bottom: .75rem;
+  line-height: 1.75;
+  padding-left: .25rem;
+}
+.ap-article-content ul li::marker {
+  color: var(--accent, #1a6b98);
+}
+.ap-article-content ol li::marker {
+  color: var(--accent, #1a6b98);
+  font-weight: 600;
+}
+
+/* ── TIP / CALLOUT BOX ── */
+.ap-article-content .tip-box {
+  margin: 2.2rem 0;
+  padding: 1.4rem 1.6rem;
+  background: var(--bg-card, rgba(77,194,232,.06));
+  border-left: 3px solid var(--accent, #4dc2e8);
+  border-radius: 4px;
+  font-size: .96rem;
+  line-height: 1.7;
+}
+[data-theme="day"] .ap-article-content .tip-box {
+  background: rgba(26,107,152,.07);
+  border-left-color: #1a6b98;
+}
+.ap-article-content .tip-box p {
+  margin: 0;
+}
+.ap-article-content .tip-box strong {
+  display: inline-block;
+  margin-right: .4rem;
+  color: var(--accent, #1a6b98);
+  font-weight: 600;
+  letter-spacing: .02em;
+}
+
+/* ── INFO GRID (stat cards) ── */
+.ap-article-content .info-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 1rem;
+  margin: 1.8rem 0 2.2rem;
+}
+.ap-article-content .info-cell {
+  padding: 1.1rem 1rem;
+  background: var(--bg-card, rgba(255,255,255,.04));
+  border: 1px solid var(--border, rgba(0,0,0,.08));
+  border-radius: 6px;
+  text-align: center;
+}
+[data-theme="day"] .ap-article-content .info-cell {
+  background: rgba(255,255,255,.6);
+}
+.ap-article-content .info-cell .ic-label {
+  font-size: .62rem;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  color: var(--text-secondary, var(--text2, #6a7a85));
+  margin-bottom: .35rem;
+  font-weight: 500;
+}
+.ap-article-content .info-cell .ic-val {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: 1.1rem;
+  font-weight: 500;
+  color: var(--accent, #1a6b98);
+  line-height: 1.2;
+}
+
+/* ── IMAGES INSIDE CONTENT ── */
+.ap-article-content img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 6px;
+  margin: 1.5rem 0;
+  display: block;
+}
+
+/* ── BLOCKQUOTE ── */
+.ap-article-content blockquote {
+  margin: 2rem 0;
+  padding: 1rem 1.5rem;
+  border-left: 3px solid var(--accent, #1a6b98);
+  font-style: italic;
+  color: var(--text-secondary, var(--text2, #4a5560));
+  font-size: 1.05rem;
+}
+
+/* ── MOBILE ADJUSTMENTS ── */
+@media (max-width: 768px) {
+  .ap-article-content {
+    font-size: .97rem;
+    line-height: 1.78;
+  }
+  .ap-article-content .ap-lead {
+    font-size: 1.08rem;
+  }
+  .ap-article-content h2 {
+    font-size: 1.35rem;
+    margin-top: 2.2rem !important;
+  }
+  .ap-article-content h3 {
+    font-size: 1.1rem;
+  }
+}
