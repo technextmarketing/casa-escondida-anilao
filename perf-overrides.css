@@ -15,43 +15,7 @@
   visibility: hidden !important;
 }
 
-/* ── 2. HERO TITLES — standardize to location.html format ── */
-/* Same font, weight, size, line-height on every page */
-.hero-h1, .r-h1, .dv-h1, .g-h1, .loc-h1, .ap-hero-title, .page-hero-h1,
-.bf-h1, .blog-hero-title, [class$="-hero-title"] {
-  font-family: 'Playfair Display', serif !important;
-  font-size: clamp(2.4rem, 5vw, 4rem) !important;
-  font-weight: 400 !important;
-  line-height: 1.05 !important;
-  margin-bottom: 1.2rem !important;
-  color: #fff !important;
-  letter-spacing: normal !important;
-  text-shadow: 0 2px 40px rgba(0,0,0,0.5) !important;
-}
-
-/* Gradient italic em — accent → gold → accent, static (no infinite glint) */
-.hero-h1 em, .r-h1 em, .dv-h1 em, .g-h1 em, .loc-h1 em,
-.ap-hero-title em, .page-hero-h1 em, [class$="-hero-title"] em,
-.sec-title em {
-  font-style: italic !important;
-  background: linear-gradient(90deg, var(--accent) 30%, var(--gold) 55%, var(--accent) 70%) !important;
-  background-size: 100% auto !important;
-  -webkit-background-clip: text !important;
-  background-clip: text !important;
-  -webkit-text-fill-color: transparent !important;
-  color: transparent !important;
-  animation: none !important;
-}
-
-/* Mobile sizing */
-@media (max-width: 768px) {
-  .hero-h1, .r-h1, .dv-h1, .g-h1, .loc-h1, .ap-hero-title, .page-hero-h1,
-  .bf-h1, .blog-hero-title, [class$="-hero-title"] {
-    font-size: clamp(1.8rem, 7vw, 2.6rem) !important;
-  }
-}
-
-/* ── 3. KILL specific looping decorative animations ── */
+/* ── 2. KILL specific looping decorative animations ── */
 [class*="diver"],
 [class*="aura"],
 .eyebrow::before,
@@ -65,7 +29,7 @@
   animation: none !important;
 }
 
-/* ── 4. KILL pulse / ping / glow loops ── */
+/* ── 3. KILL pulse / ping / glow loops ── */
 .pulse-dot,
 .live-dot,
 [class*="pulse"],
@@ -73,18 +37,18 @@
   animation: none !important;
 }
 
-/* ── 5. KILL progress bar shimmer ── */
+/* ── 4. KILL progress bar shimmer ── */
 .rb-fill::after,
 .progress-shimmer {
   animation: none !important;
 }
 
-/* ── 6. REMOVE background-attachment:fixed (causes scroll jank) ── */
+/* ── 5. REMOVE background-attachment:fixed (causes scroll jank) ── */
 html, body, [data-theme="night"], [data-theme="day"], .pad, .hero, .pg, section {
   background-attachment: scroll !important;
 }
 
-/* ── 6b. REMOVE only document-level (html/body) background image ── */
+/* ── 5b. REMOVE only document-level (html/body) background image ── */
 /* Hero / booking / photo backgrounds are intentionally kept. */
 html, body,
 [data-theme="night"]:not(.r-hero):not(.dv-hero):not(.loc-hero):not(.hero):not([class*="-hero"]),
@@ -94,7 +58,7 @@ html, body,
 /* The above pattern means: only kill background-image when the theme attr
    is on the root html/body — not when applied to hero sections themselves. */
 
-/* ── 7. REDUCE backdrop-filter to NAV ONLY (keeps premium nav blur,
+/* ── 6. REDUCE backdrop-filter to NAV ONLY (keeps premium nav blur,
        removes GPU-expensive blur from cards and panels) ── */
 .card, .svc-card, .rm-card, .rv-card, .di-stat, .di-card,
 .bf-info, .bf-thumb, .ap-cta, .ap-toc, .tip-box,
@@ -108,71 +72,7 @@ html, body,
 /* Keep blur on these (premium feel, low cost): */
 /* #nav, .mobile-nav, .lb, .modal, .eco-modal — untouched */
 
-/* ── 7b. STANDARDIZE all hero sections — full viewport, centered ── */
-.r-hero, .dv-hero, .g-hero, .loc-hero, .ap-hero, .pg-hero, #hero, .blog-hero,
-section[class*="-hero"]:not(.loc-hero-content):not(.dv-hero-content):not(.ap-hero-content) {
-  min-height: 100vh !important;
-  min-height: 100dvh !important;
-  display: flex !important;
-  flex-direction: column !important;
-  align-items: center !important;
-  justify-content: center !important;
-  text-align: center !important;
-  position: relative !important;
-}
-
-/* Center the inner content container too */
-.r-hero > *, .g-hero > *, .pg-hero > *,
-.r-hero .c, .g-hero .c, .pg-hero .c {
-  text-align: center !important;
-  max-width: 900px !important;
-  margin: 0 auto !important;
-}
-
-/* Center any eyebrow / line decorations inside hero */
-.pg-hero .eyebrow, .r-hero .r-eyebrow, .g-hero .g-eyebrow,
-.r-hero .eyebrow, .g-hero .eyebrow, [class*="-hero"] .eyebrow {
-  justify-content: center !important;
-  margin-left: auto !important;
-  margin-right: auto !important;
-}
-
-/* Center paragraph descriptions in hero */
-.r-hero p, .g-hero p, .pg-hero p, [class*="-hero"] > .c p {
-  text-align: center !important;
-  margin-left: auto !important;
-  margin-right: auto !important;
-  max-width: 640px !important;
-}
-
-@media (max-width: 768px) {
-  .r-hero, .dv-hero, .g-hero, .loc-hero, .ap-hero, .pg-hero, #hero, .blog-hero,
-  section[class*="-hero"]:not(.loc-hero-content):not(.dv-hero-content):not(.ap-hero-content) {
-    min-height: 560px !important;
-  }
-}
-
-/* Apply standardized title styles to inline h1 in .pg-hero (blog.html) */
-.pg-hero h1 {
-  font-family: 'Playfair Display', serif !important;
-  font-size: clamp(2.4rem, 5vw, 4rem) !important;
-  font-weight: 400 !important;
-  line-height: 1.05 !important;
-  color: #fff !important;
-  margin-bottom: 1.2rem !important;
-}
-.pg-hero h1 em {
-  font-style: italic !important;
-  background: linear-gradient(90deg, var(--accent) 30%, var(--gold) 55%, var(--accent) 70%) !important;
-  background-size: 100% auto !important;
-  -webkit-background-clip: text !important;
-  background-clip: text !important;
-  -webkit-text-fill-color: transparent !important;
-  color: transparent !important;
-  animation: none !important;
-}
-
-/* ── 8. RESPECT prefers-reduced-motion (accessibility) ── */
+/* ── 7. RESPECT prefers-reduced-motion (accessibility) ── */
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after {
     animation-duration: 0.01ms !important;
@@ -182,10 +82,5 @@ section[class*="-hero"]:not(.loc-hero-content):not(.dv-hero-content):not(.ap-her
   }
 }
 
-/* ── 9. Image entrance: keep the fade-in but no extra effects ── */
+/* ── 8. Image entrance: keep the fade-in but no extra effects ── */
 img { animation: none !important; }
-
-/* ── 10. Hero subtle entrance allowed once via .heroIn (no loop) ── */
-.dv-eyebrow, .dv-h1, .dv-sub, .dv-hero-btns, .dv-hero-stats {
-  /* Keep entrance fade (runs once via 'forwards') */
-}
