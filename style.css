@@ -441,39 +441,10 @@
   }
 
   
-    /* ── Hide cursor elements on mobile (mouse-only features) ── */
-    @media (max-width: 768px) {
-      #cur-dot, #cur-ring, .cur-ring-burst,
-      .cur-ripple, .cur-burst { display: none !important; }
-
-      /* Hide hover-only list on touch (tap triggers :hover in some browsers) */
-      .svc-list { display: none !important; }
-    }
-    @media (hover: none) {
-      #cur-dot, #cur-ring, .cur-ring-burst,
-      .cur-ripple, .cur-burst { display: none !important; }
-      .svc-list { display: none !important; }
-    }
-  
-    /* ── HARD-KILL cursor & svc-list on all mobile/touch (broadened) ── */
-    @media (max-width: 1100px) {
-      #cur-dot, #cur-ring, .cur-ring-burst,
-      .cur-ripple, .cur-burst, .cursor-trail {
-        display: none !important;
-        visibility: hidden !important;
-        opacity: 0 !important;
-      }
-      .svc-list { display: none !important; }
-    }
-    @media (hover: none) {
-      #cur-dot, #cur-ring, .cur-ring-burst,
-      .cur-ripple, .cur-burst, .cursor-trail {
-        display: none !important;
-        visibility: hidden !important;
-        opacity: 0 !important;
-      }
-      .svc-list { display: none !important; }
-    }
+    /* Hide hover-only list on touch (tap triggers :hover in some browsers) */
+    @media (max-width: 768px) { .svc-list { display: none !important; } }
+    @media (hover: none) { .svc-list { display: none !important; } }
+    @media (max-width: 1100px) { .svc-list { display: none !important; } }
   
     /* ── Kill hover-list on mobile/touch (explicit high-specificity override) ── */
     @media (max-width: 1100px) {
@@ -657,16 +628,4 @@
   }
 
   
-  /* ── Cursor off on touch (pointer:coarse covers all phones/tablets) ── */
-  @media (pointer: coarse) {
-    #cur-dot, #cur-ring,
-    .cur-ring-burst, .cur-ripple, .cur-burst { display: none !important; }
-    canvas                                   { display: none !important; }
-    body, body *                             { cursor: auto !important; }
-  }
-  .is-touch #cur-dot, .is-touch #cur-ring,
-  .is-touch .cur-ring-burst, .is-touch .cur-ripple,
-  .is-touch .cur-burst                       { display: none !important; }
-  .is-touch canvas                           { display: none !important; }
-  .is-touch body, .is-touch body *           { cursor: auto !important; }
 

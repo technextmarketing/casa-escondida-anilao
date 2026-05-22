@@ -82,9 +82,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     <script defer src="cookie-consent.js"></script>
   <script defer src="visitor-tracking.js"></script>
   <script defer src="lazy-images.js"></script>
-  <link rel="stylesheet" href="perf-overrides.css" />
-  <link rel="stylesheet" href="cursor.css" />
-  <script defer src="site.js"></script>
+  <link rel="stylesheet" href="perf-overrides.css" /><script defer src="site.js"></script>
 </head>
 <body>
 <!-- Google Tag Manager (noscript) -->
@@ -92,9 +90,6 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <!-- End Google Tag Manager (noscript) -->
 <div id="pg-bar"></div>
-<div id="cur-dot"></div>
-<div id="cur-ring"></div>
-
 <!-- Night mode ambient orbs -->
 <div class="orb-layer" aria-hidden="true">
   <div class="orb orb-1"></div>
@@ -410,92 +405,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     var nav=document.getElementById('nav'),lastY=0,ticking=false;
     function update(){var y=window.scrollY;if(y<120)nav.classList.remove('nav-hidden');else if(y>lastY+6)nav.classList.add('nav-hidden');else if(y<lastY-6)nav.classList.remove('nav-hidden');lastY=y;ticking=false;}
     window.addEventListener('scroll',function(){if(!ticking){requestAnimationFrame(update);ticking=true;}},{passive:true});
-  })();
-
-  /* ── Custom Cursor ── */
-  const dot = document.getElementById('cur-dot');
-  const ring = document.getElementById('cur-ring');
-  if (dot && ring) {
-    let rx = 0, ry = 0;
-    document.addEventListener('mousemove', e => {
-      dot.style.left = e.clientX + 'px'; dot.style.top = e.clientY + 'px';
-      rx += (e.clientX - rx) * 0.12; ry += (e.clientY - ry) * 0.12;
-      ring.style.left = rx + 'px'; ring.style.top = ry + 'px';
-    });
-    document.querySelectorAll('a,button').forEach(el => {
-      el.addEventListener('mouseenter', () => document.body.classList.add('cur-hover'));
-      el.addEventListener('mouseleave', () => document.body.classList.remove('cur-hover'));
-    });
-    document.addEventListener('mousedown', () => document.body.classList.add('cur-click'));
-    document.addEventListener('mouseup', () => document.body.classList.remove('cur-click'));
-  }
-
-  /* ── Ripple & Cursor Trail ── */
-  (function(){
-    const cvs = document.createElement('canvas'); cvs.setAttribute('data-ce-cursor','1');
-    cvs.style.cssText = 'position:fixed;top:0;left:0;width:100%;height:100%;pointer-events:none;z-index:99998;mix-blend-mode:screen;';
-    document.body.appendChild(cvs);
-    const ctx = cvs.getContext('2d');
-    let W, H;
-    const resize = () => { W = cvs.width = window.innerWidth; H = cvs.height = window.innerHeight; };
-    resize();
-    window.addEventListener('resize', resize);
-    const ripples = [], particles = [];
-    let mx = -999, my = -999;
-    window.addEventListener('click', e => {
-      const x = e.clientX, y = e.clientY;
-      ripples.push({ x, y, r:0, maxR:12, alpha:1, speed:7, type:'flash', delay:0 });
-      [{maxR:60,speed:3.2,alpha:.9,delay:0},{maxR:105,speed:5,alpha:.7,delay:4},{maxR:155,speed:7,alpha:.5,delay:9},{maxR:220,speed:9,alpha:.3,delay:15}]
-        .forEach(cfg => ripples.push({ x, y, r:0, type:'ring', ...cfg }));
-      for (let i=0;i<18;i++){
-        const ang=(i/18)*Math.PI*2, spd=2+Math.random()*4;
-        particles.push({x,y,vx:Math.cos(ang)*spd,vy:Math.sin(ang)*spd,r:2+Math.random()*2,life:1,decay:.022+Math.random()*.018,trail:false});
-      }
-      for (let i=0;i<8;i++) particles.push({x,y,vx:(Math.random()-.5)*2,vy:(Math.random()-.5)*2-1,r:1.5,life:1,decay:.05+Math.random()*.04,trail:false});
-    });
-    window.addEventListener('mousemove', e => {
-      const dx=e.clientX-mx, dy=e.clientY-my;
-      if (dx*dx+dy*dy>50){ mx=e.clientX; my=e.clientY;
-        for(let i=0;i<4;i++) particles.push({x:mx+(Math.random()-.5)*6,y:my+(Math.random()-.5)*6,vx:(Math.random()-.5)*.5,vy:(Math.random()-.5)*.5-.5,r:1+Math.random()*2.5,life:1,decay:.045+Math.random()*.03,trail:true});
-      }
-    });
-    function loop(){
-      ctx.clearRect(0,0,W,H);
-      for(let i=ripples.length-1;i>=0;i--){
-        const rp=ripples[i];
-        if(rp.delay>0){rp.delay--;continue;}
-        rp.r+=rp.speed;
-        const prog=rp.r/rp.maxR;
-        if(prog>=1){ripples.splice(i,1);continue;}
-        if(rp.type==='flash'){
-          const a=rp.alpha*(1-prog);
-          const grd=ctx.createRadialGradient(rp.x,rp.y,0,rp.x,rp.y,rp.r);
-          grd.addColorStop(0,`rgba(180,240,255,${a})`);grd.addColorStop(.5,`rgba(77,194,232,${a*.6})`);grd.addColorStop(1,`rgba(77,194,232,0)`);
-          ctx.beginPath();ctx.arc(rp.x,rp.y,rp.r,0,Math.PI*2);ctx.fillStyle=grd;ctx.fill();
-        } else {
-          const ease=1-prog*prog, a=rp.alpha*ease;
-          ctx.beginPath();ctx.arc(rp.x,rp.y,rp.r,0,Math.PI*2);
-          ctx.strokeStyle=`rgba(77,194,232,${a})`;ctx.lineWidth=Math.max(2.5*(1-prog*.7),.5);ctx.stroke();
-          if(rp.r>20){ctx.beginPath();ctx.arc(rp.x,rp.y,rp.r*.65,0,Math.PI*2);ctx.strokeStyle=`rgba(140,220,248,${a*.35})`;ctx.lineWidth=1;ctx.stroke();}
-          if(prog<.3){const grd=ctx.createRadialGradient(rp.x,rp.y,0,rp.x,rp.y,rp.r);grd.addColorStop(0,'rgba(77,194,232,0)');grd.addColorStop(.75,'rgba(77,194,232,0)');grd.addColorStop(1,`rgba(77,194,232,${a*.18})`);ctx.beginPath();ctx.arc(rp.x,rp.y,rp.r,0,Math.PI*2);ctx.fillStyle=grd;ctx.fill();}
-        }
-      }
-      for(let i=particles.length-1;i>=0;i--){
-        const p=particles[i];
-        p.x+=p.vx;p.y+=p.vy;
-        if(!p.trail)p.vy+=.06;
-        p.life-=p.decay;
-        if(p.life<=0){particles.splice(i,1);continue;}
-        const a=p.life*(p.trail?.55:.85), r=Math.max(p.r*p.life,.3);
-        const grd=ctx.createRadialGradient(p.x,p.y,0,p.x,p.y,r*2.5);
-        grd.addColorStop(0,`rgba(190,245,255,${a})`);grd.addColorStop(.4,`rgba(77,194,232,${a*.7})`);grd.addColorStop(1,'rgba(77,194,232,0)');
-        ctx.beginPath();ctx.arc(p.x,p.y,r*2.5,0,Math.PI*2);ctx.fillStyle=grd;ctx.fill();
-      }
-      requestAnimationFrame(loop);
-    }
-    loop();
-  })();
-</script>
+  })();</script>
 
 <script>
 (function(){
