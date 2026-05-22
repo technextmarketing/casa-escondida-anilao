@@ -84,6 +84,19 @@ html, body,
 /* Keep blur on these (premium feel, low cost): */
 /* #nav, .mobile-nav, .lb, .modal, .eco-modal — untouched */
 
+/* ── 7b. STANDARDIZE all hero sections to full viewport height ── */
+.r-hero, .dv-hero, .g-hero, .loc-hero, .ap-hero, #hero, .blog-hero,
+section[class*="-hero"]:not(.loc-hero-content):not(.dv-hero-content):not(.ap-hero-content) {
+  min-height: 100vh !important;
+  min-height: 100dvh !important;
+}
+@media (max-width: 768px) {
+  .r-hero, .dv-hero, .g-hero, .loc-hero, .ap-hero, #hero, .blog-hero,
+  section[class*="-hero"]:not(.loc-hero-content):not(.dv-hero-content):not(.ap-hero-content) {
+    min-height: 560px !important;
+  }
+}
+
 /* ── 8. RESPECT prefers-reduced-motion (accessibility) ── */
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after {
