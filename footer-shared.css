@@ -1,0 +1,58 @@
+/* ═════════════════════════════════════════════════════════
+   FOOTER — Shared canonical styles (matches style.css)
+   Used by index.html (other pages get these via style.css)
+   ═════════════════════════════════════════════════════════ */
+
+/* Bind to both old (--text-primary/--text-muted/--bg-secondary)
+   and new (--text/--text3/--bg2) token names so both index.html
+   and other pages can share this file consistently. */
+
+footer.site-footer { background: var(--bg2, var(--bg-secondary)); border-top: 1px solid var(--border); padding: 3rem 0 1.5rem; margin-top: 0; }
+.site-footer .c { max-width: 1400px; margin: 0 auto; padding: 0 2.5rem; }
+
+.foot-grid { display: grid; grid-template-columns: 1.5fr 1fr 1fr 1fr 1fr; gap: 1.8rem; margin-bottom: 2rem; align-items: start; }
+.foot-col-links { display: contents; }
+
+.foot-logo { font-family: 'Playfair Display', serif; font-size: 1.25rem; font-weight: 300; color: var(--text, var(--text-primary)); text-decoration: none; display: block; margin-bottom: 0.6rem; }
+.foot-logo span { color: var(--accent); }
+.foot-desc { font-size: 0.74rem; color: var(--text3, var(--text-muted)); line-height: 1.6; max-width: 280px; margin-bottom: 0.9rem; }
+.foot-socials { display: flex; gap: 0.45rem; }
+.foot-socials .soc { width: 36px; height: 36px; border: 1px solid var(--border); border-radius: 50%; display: flex; align-items: center; justify-content: center; text-decoration: none; color: var(--text3, var(--text-muted)); transition: all 0.3s; cursor: pointer; }
+.foot-socials .soc svg { width: 15px; height: 15px; fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; display: block; }
+.foot-socials .soc svg.fill-icon { fill: currentColor; stroke: none; }
+.foot-socials .soc:hover { border-color: var(--accent); color: var(--accent); transform: translateY(-3px); box-shadow: 0 6px 18px rgba(77,194,232,0.18); }
+
+.foot-h { font-size: 0.6rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--accent); margin-bottom: 0.7rem; }
+.foot-links { list-style: none; display: flex; flex-direction: column; gap: 0.4rem; padding: 0; margin: 0; }
+.foot-links a { font-size: 0.76rem; color: var(--text3, var(--text-muted)); text-decoration: none; transition: color 0.3s; line-height: 1.4; }
+.foot-links a:hover { color: var(--text, var(--text-primary)); }
+
+.foot-bottom { display: flex; justify-content: space-between; align-items: center; padding-top: 1.1rem; border-top: 1px solid var(--border); max-width: 1400px; margin: 0 auto; padding-left: 2.5rem; padding-right: 2.5rem; }
+.foot-copy { font-size: 0.72rem; color: var(--text3, var(--text-muted)); }
+.foot-legal { display: flex; gap: 1.5rem; }
+.foot-legal a { font-size: 0.72rem; color: var(--text3, var(--text-muted)); text-decoration: none; transition: color 0.3s; }
+.foot-legal a:hover { color: var(--text, var(--text-primary)); }
+
+@media (max-width: 1100px) {
+  .foot-grid { grid-template-columns: repeat(4, 1fr); gap: 1.5rem; }
+  .foot-grid > div:first-child { grid-column: 1 / -1; display: flex; flex-direction: column; align-items: flex-start; margin-bottom: 0.4rem; }
+  .foot-desc { max-width: 560px; }
+}
+
+@media (max-width: 900px) {
+  .foot-grid { grid-template-columns: repeat(2, 1fr); gap: 1.5rem 1.2rem; }
+  .foot-desc { max-width: none; }
+  .site-footer .c, .foot-bottom { padding-left: 1.2rem; padding-right: 1.2rem; }
+  .foot-bottom { flex-direction: column; gap: 0.6rem; text-align: center; }
+}
+
+@media (max-width: 768px) {
+  footer.site-footer { padding: 2.5rem 0 1.5rem; }
+  .foot-logo { font-size: 1.1rem; }
+  .foot-grid { margin-bottom: 2rem; }
+}
+
+@media (max-width: 480px) {
+  .foot-grid { grid-template-columns: 1fr 1.2fr; gap: 1rem; }
+  .foot-desc { font-size: 0.75rem; line-height: 1.6; }
+}
