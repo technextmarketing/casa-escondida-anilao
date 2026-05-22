@@ -15,16 +15,40 @@
   visibility: hidden !important;
 }
 
-/* ── 2. KILL all continuous text/icon shimmer animations ── */
-.dv-h1 em,
-.hero-h1 em,
+/* ── 2. HERO TITLES — standardize to location.html format ── */
+/* Same font, weight, size, line-height on every page */
+.hero-h1, .r-h1, .dv-h1, .g-h1, .loc-h1, .ap-hero-title, .page-hero-h1,
+.bf-h1, .blog-hero-title, [class$="-hero-title"] {
+  font-family: 'Playfair Display', serif !important;
+  font-size: clamp(2.4rem, 5vw, 4rem) !important;
+  font-weight: 400 !important;
+  line-height: 1.05 !important;
+  margin-bottom: 1.2rem !important;
+  color: #fff !important;
+  letter-spacing: normal !important;
+  text-shadow: 0 2px 40px rgba(0,0,0,0.5) !important;
+}
+
+/* Gradient italic em — accent → gold → accent, static (no infinite glint) */
+.hero-h1 em, .r-h1 em, .dv-h1 em, .g-h1 em, .loc-h1 em,
+.ap-hero-title em, .page-hero-h1 em, [class$="-hero-title"] em,
 .sec-title em {
+  font-style: italic !important;
+  background: linear-gradient(90deg, var(--accent) 30%, var(--gold) 55%, var(--accent) 70%) !important;
+  background-size: 100% auto !important;
+  -webkit-background-clip: text !important;
+  background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
+  color: transparent !important;
   animation: none !important;
-  background: none !important;
-  -webkit-text-fill-color: currentColor !important;
-  color: var(--accent) !important;
-  background-clip: unset !important;
-  -webkit-background-clip: unset !important;
+}
+
+/* Mobile sizing */
+@media (max-width: 768px) {
+  .hero-h1, .r-h1, .dv-h1, .g-h1, .loc-h1, .ap-hero-title, .page-hero-h1,
+  .bf-h1, .blog-hero-title, [class$="-hero-title"] {
+    font-size: clamp(1.8rem, 7vw, 2.6rem) !important;
+  }
 }
 
 /* ── 3. KILL specific looping decorative animations ── */
