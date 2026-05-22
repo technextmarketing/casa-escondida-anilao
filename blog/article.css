@@ -3,20 +3,14 @@
    Used by all static blog post pages in /blog/
    ═══════════════════════════════════════════════════════ */
 
-/* ── HERO — full viewport for all blog articles ── */
+/* ── HERO ── */
 .ap-hero {
-  position: relative;
-  height: 100vh;
-  height: 100dvh;
-  min-height: 640px;
+  min-height: 360px;
   padding-top: 5rem !important;
   margin-top: 0;
-  display: flex;
-  align-items: flex-end;
-  overflow: hidden;
 }
 @media (max-width: 768px) {
-  .ap-hero { min-height: 560px; padding-top: 4.5rem !important; }
+  .ap-hero { min-height: 280px; padding-top: 4.5rem !important; }
   .ap-hero-content { padding: 2rem 1.5rem 2rem !important; }
   .ap-hero h1 { font-size: 1.5rem !important; }
 }
