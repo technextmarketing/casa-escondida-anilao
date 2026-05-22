@@ -403,6 +403,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   </script>
   <link rel="stylesheet" href="footer-v3.css" />
   <script defer src="visitor-tracking.js"></script>
+  <script defer src="lazy-images.js"></script>
 </head>
 <body>
 <!-- Google Tag Manager (noscript) -->
@@ -656,7 +657,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   <div class="eco-modal-inner">
     <div class="eco-modal-photo">
       <button class="eco-modal-close" id="ecoModalClose" aria-label="Close detail">&times;</button>
-      <img decoding="async" id="ecoModalImg" src="" alt="" />
+      <img decoding="async" loading="lazy" id="ecoModalImg" src="" alt="" />
     </div>
     <div class="eco-modal-body">
       <div class="eco-modal-cat" id="ecoModalCat"></div>
