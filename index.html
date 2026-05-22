@@ -324,9 +324,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     }
     .hero-photo {
       position:absolute; inset:0;
-      background:
-        url('images/Hero Image/hf_20260427_125509_05a0eb7e-3e2e-4dab-85fb-e077fd155f4c.webp')
-        center 30% / cover no-repeat;
+      background: transparent;
       animation:dayFloat 22s ease-in-out infinite alternate;
       will-change:transform;
     }
@@ -339,9 +337,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     .hero-photo::before {
       content:'';
       position:absolute; inset:0;
-      background:
-        url('images/Hero Image/photo-1544551763-46a013bb70d5.png_202604221628.webp')
-        center 40% / cover no-repeat;
+      background: transparent;
       opacity:0;
       transition:opacity 1.2s ease;
     }
@@ -1117,7 +1113,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     }
     .booking-bg {
       position:absolute; inset:0;
-      background:url('images/Hero%20Image/hf_20260427_125509_05a0eb7e-3e2e-4dab-85fb-e077fd155f4c.webp') center center/cover no-repeat;
+      background: transparent;
       filter:brightness(0.3) saturate(1.4);
     }
     .booking-overlay {
@@ -1883,9 +1879,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       background-size: cover !important;
     }
     [data-theme="day"] .hero-photo {
-      background-image: url('images/Hero Image/hf_20260427_125509_05a0eb7e-3e2e-4dab-85fb-e077fd155f4c.webp') !important;
-      background-position: 60% 25% !important;
-      background-size: cover !important;
+      background-image: none !important;
     }
 
     /* ── background-attachment:fixed causes full repaint on scroll + iOS parallax glitch ── */

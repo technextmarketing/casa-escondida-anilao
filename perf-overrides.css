@@ -60,8 +60,23 @@ html, body, [data-theme="night"], [data-theme="day"], .pad, .hero, .pg, section 
   background-attachment: scroll !important;
 }
 
-/* ── 6b. REMOVE faint document-level background images on every page ── */
-html, body, [data-theme="night"], [data-theme="day"] {
+/* ── 6b. REMOVE document-level AND hero-level background images everywhere ── */
+html, body,
+[data-theme="night"], [data-theme="day"],
+.r-hero, .dv-hero, .dv-hero-bg, .dv-hero-photo,
+.loc-hero, .gal-hero, .bf-hero, .ap-hero, .ap-hero-bg,
+.hero, .hero-photo, .hero-bg, .page-hero,
+.booking-bg, .booking-section, .b-section,
+.dining-photos, .about-photos, .pad-bg, .pg-bg,
+section[class*="-hero"], div[class*="-hero"], div[class*="-bg"] {
+  background-image: none !important;
+}
+
+/* Also kill it on the ::before/::after pseudo-elements (some heroes use them) */
+.r-hero::before, .dv-hero::before, .loc-hero::before, .gal-hero::before,
+.bf-hero::before, .ap-hero::before, .hero::before, .hero-photo::before,
+.booking-bg::before, .page-hero::before,
+[class*="-hero"]::before, [class*="-bg"]::before {
   background-image: none !important;
 }
 
