@@ -17,7 +17,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   gtag('js', new Date());
   gtag('config', 'G-BHGE4494ZY');
   </script>
-  <script>(function(){var t=localStorage.getItem('ce-theme')||(matchMedia('(prefers-color-scheme:dark)').matches?'night':'day');document.documentElement.setAttribute('data-theme',t);})();</script>
+  <script>(function(){var t=localStorage.getItem('ce-theme')||'night';document.documentElement.setAttribute('data-theme',t);})();</script>
   <link rel="preload" as="image" href="../images/Nature%20Folder/sea%20fan%20coral.jpg" />
   <link rel="dns-prefetch" href="https://fonts.googleapis.com" />
   <link rel="dns-prefetch" href="https://fonts.gstatic.com" />
@@ -234,7 +234,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   </footer>
 <script>
 (function(){
-  var t=localStorage.getItem('ce-theme')||(matchMedia('(prefers-color-scheme:dark)').matches?'night':'day');
+  var t=localStorage.getItem('ce-theme')||'night';
   document.documentElement.setAttribute('data-theme',t);
   var h=document.documentElement,sync=function(){
     var n=h.getAttribute('data-theme')==='night';

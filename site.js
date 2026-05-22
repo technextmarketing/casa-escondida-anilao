@@ -30,18 +30,8 @@
       try { localStorage.setItem('ce-theme', next); } catch (e) {}
       sync();
     });
-    if (window.matchMedia) {
-      try {
-        window.matchMedia('(prefers-color-scheme:dark)').addEventListener('change', function (e) {
-          try {
-            if (!localStorage.getItem('ce-theme')) {
-              html.setAttribute('data-theme', e.matches ? 'night' : 'day');
-              sync();
-            }
-          } catch (err) {}
-        });
-      } catch (e) {}
-    }
+    /* OS theme change listener removed — site always defaults to night
+       unless the user manually toggles to day (saved in localStorage). */
   })();
 
   /* ── MOBILE NAV ───────────────────────────────────────── */
