@@ -860,9 +860,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     localStorage.setItem('ce-theme', next);
     syncThemeUI();
   });
-  matchMedia('(prefers-color-scheme:dark)').addEventListener('change', e => {
-    if (!localStorage.getItem('ce-theme')) { html.setAttribute('data-theme', e.matches ? 'night' : 'day'); syncThemeUI(); }
-  });
+  /* OS theme listener removed — night is default */
 
   /* ── Room filter ── */
   const filterBtns = document.querySelectorAll('.filter-btn');
