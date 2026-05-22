@@ -1,6 +1,7 @@
 /* ═════════════════════════════════════════════════════════
    VISITOR TRACKING — Casa Escondida Anilao
    Stores visitor data in cookie + sends to Google Analytics
+   Respects ce_consent cookie (set by cookie-consent.js)
    ═════════════════════════════════════════════════════════ */
 (function () {
   'use strict';
@@ -8,6 +9,25 @@
   var COOKIE_NAME = 'ce_visitor';
   var COOKIE_DAYS = 365;
   var MAX_PAGES_STORED = 20;
+
+  /* ── Check consent before tracking ── */
+  function hasConsent() {
+    var match = document.cookie.split('; ').find(function (c) {
+      return c.indexOf('ce_consent=') === 0;
+    });
+    return match && match.split('=')[1] === 'accepted';
+  }
+
+  /* If declined, abort. If undecided, wait for consent. */
+  if (!hasConsent()) {
+    /* Expose a function so consent banner can trigger tracking after accept */
+    window.CE_RUN_TRACKING = function () { runTracking(); };
+    return;
+  }
+
+  runTracking();
+
+  function runTracking() {
 
   /* ── Cookie helpers ── */
   function getCookie(name) {
@@ -126,4 +146,5 @@
 
   /* ── Expose for debugging / dashboards ── */
   window.CE_VISITOR = data;
+  } /* end runTracking */
 })();
