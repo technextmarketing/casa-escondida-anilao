@@ -300,6 +300,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   }
   </script>
   <link rel="stylesheet" href="footer-v3.css" />
+  <script defer src="visitor-tracking.js"></script>
 </head>
 <body>
 <!-- Google Tag Manager (noscript) -->
@@ -1628,11 +1629,13 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     window.addEventListener('scroll',function(){if(!ticking){requestAnimationFrame(update);ticking=true;}},{passive:true});
   })();
 
-  /* ── Scroll reveal ── */
-  const ro = new IntersectionObserver(entries => {
+  /* ── Scroll reveal (one-way, resets only on refresh) ── */
+  const ro = new IntersectionObserver((entries, obs) => {
     entries.forEach(e => {
-      if (e.isIntersecting) e.target.classList.add('on');
-      else e.target.classList.remove('on');
+      if (e.isIntersecting) {
+        e.target.classList.add('on');
+        obs.unobserve(e.target);
+      }
     });
   }, { threshold: 0.1 });
   document.querySelectorAll('.rv').forEach(el => ro.observe(el));
