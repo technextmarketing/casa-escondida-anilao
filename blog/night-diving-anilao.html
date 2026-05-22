@@ -196,28 +196,6 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       </div>
     </div>
   </footer>
-<script>
-(function(){
-  var t=localStorage.getItem('ce-theme')||'night';
-  document.documentElement.setAttribute('data-theme',t);
-  var h=document.documentElement,sync=function(){
-    var n=h.getAttribute('data-theme')==='night';
-    document.getElementById('icon-moon').style.display=n?'block':'none';
-    document.getElementById('icon-sun').style.display=n?'none':'block';
-    document.getElementById('themeLabel').textContent=n?'Night':'Day';
-  };
-  sync();
-  document.getElementById('themeBtn').addEventListener('click',function(){
-    var next=h.getAttribute('data-theme')==='night'?'day':'night';
-    h.setAttribute('data-theme',next);localStorage.setItem('ce-theme',next);sync();
-  });
-  var hamburger=document.getElementById('navHamburger'),mobileNav=document.getElementById('mobileNav');
-  hamburger.addEventListener('click',function(){
-    var open=mobileNav.classList.toggle('open');
-    mobileNav.style.display=open?'flex':'none';
-    hamburger.setAttribute('aria-expanded',open);
-  });
-})();
-</script>
+
 </body>
 </html>

@@ -889,23 +889,6 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   </footer>
 
 <script>
-  /* ── Theme Toggle ── */
-  const html = document.documentElement;
-  const syncThemeUI = () => {
-    const n = html.getAttribute('data-theme') === 'night';
-    document.getElementById('icon-moon').style.display = n ? 'block' : 'none';
-    document.getElementById('icon-sun').style.display  = n ? 'none'  : 'block';
-    document.getElementById('themeLabel').textContent = n ? 'Night' : 'Day';
-  };
-  syncThemeUI();
-  document.getElementById('themeBtn').addEventListener('click', () => {
-    const night = html.getAttribute('data-theme') === 'night';
-    const next = night ? 'day' : 'night';
-    html.setAttribute('data-theme', next);
-    localStorage.setItem('ce-theme', next);
-    syncThemeUI();
-  });
-  /* OS theme listener removed — night is default */
 
   /* ── Mobile Nav ── */
   const hamburger = document.getElementById('navHamburger');
@@ -1157,53 +1140,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   })();
 </script>
 
-  <script>
-
-/* MOBILE-NAV-FIX-V2 */
-(function(){
-  /* Insert backdrop overlay into DOM */
-  var bkdrop = document.querySelector('.mob-nav-bkdrop');
-  if (!bkdrop) {
-    bkdrop = document.createElement('div');
-    bkdrop.className = 'mob-nav-bkdrop';
-    document.body.appendChild(bkdrop);
-  }
-
-  /* Clone hamburger button to strip ALL previously attached listeners */
-  var hbOld = document.getElementById('navHamburger');
-  if (!hbOld) return;
-  var hb = hbOld.cloneNode(true);
-  hbOld.parentNode.replaceChild(hb, hbOld);
-
-  var nav = document.getElementById('mobileNav');
-  if (!nav) return;
-
-  function openMenu() {
-    hb.setAttribute('aria-expanded', 'true');
-    hb.setAttribute('aria-label', 'Close menu');
-    nav.classList.add('open');
-    nav.setAttribute('aria-hidden', 'false');
-    bkdrop.classList.add('visible');
-    document.body.style.overflow = 'hidden';
-  }
-  function closeMenu() {
-    hb.setAttribute('aria-expanded', 'false');
-    hb.setAttribute('aria-label', 'Open menu');
-    nav.classList.remove('open');
-    nav.setAttribute('aria-hidden', 'true');
-    bkdrop.classList.remove('visible');
-    document.body.style.overflow = '';
-  }
-
-  hb.addEventListener('click', function () {
-    hb.getAttribute('aria-expanded') === 'true' ? closeMenu() : openMenu();
-  });
-  bkdrop.addEventListener('click', closeMenu);
-  document.addEventListener('keydown', function (e) { if (e.key === 'Escape') closeMenu(); });
-  nav.querySelectorAll('a').forEach(function (a) { a.addEventListener('click', closeMenu); });
-})();
-
-  </script>
+  
 
 
 

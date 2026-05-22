@@ -1,7 +1,7 @@
 /* ═════════════════════════════════════════════════════════
    SITE.JS — Shared interactions for Casa Escondida Anilao
    • Theme toggle (day / night)
-   • Mobile nav drawer
+   • Mobile nav dropdown
    • Nav hide-on-scroll-down
    • Page progress bar
    ═════════════════════════════════════════════════════════ */
@@ -11,14 +11,8 @@
   /* ── THEME TOGGLE ─────────────────────────────────────── */
   (function () {
     var html = document.documentElement;
-    var oldBtn = document.getElementById('themeBtn');
-    if (!oldBtn) return;
-
-    /* Clone the button to strip any inline-attached duplicate listeners
-       (every page has an inline handler AND this deferred script —
-       cloning removes the inline one so only this handler fires). */
-    var btn = oldBtn.cloneNode(true);
-    oldBtn.parentNode.replaceChild(btn, oldBtn);
+    var btn  = document.getElementById('themeBtn');
+    if (!btn) return;
 
     var moon  = document.getElementById('icon-moon');
     var sun   = document.getElementById('icon-sun');
@@ -37,27 +31,41 @@
       try { localStorage.setItem('ce-theme', next); } catch (e) {}
       sync();
     });
-    /* OS theme change listener removed — night is default unless user toggles. */
   })();
 
-  /* ── MOBILE NAV ───────────────────────────────────────── */
+  /* ── MOBILE NAV (dropdown) ────────────────────────────── */
   (function () {
     var hamburger = document.getElementById('navHamburger');
     var mobileNav = document.getElementById('mobileNav');
     if (!hamburger || !mobileNav) return;
+
     function close() {
       mobileNav.classList.remove('open');
-      mobileNav.style.display = 'none';
       hamburger.setAttribute('aria-expanded', 'false');
     }
     function toggle() {
       var open = mobileNav.classList.toggle('open');
-      mobileNav.style.display = open ? 'flex' : 'none';
       hamburger.setAttribute('aria-expanded', open ? 'true' : 'false');
     }
-    hamburger.addEventListener('click', toggle);
+
+    hamburger.addEventListener('click', function (e) {
+      e.stopPropagation();
+      toggle();
+    });
+
+    /* Close when a nav link is clicked */
     mobileNav.querySelectorAll('a').forEach(function (a) {
       a.addEventListener('click', close);
+    });
+
+    /* Close on outside tap */
+    document.addEventListener('click', function (e) {
+      if (!mobileNav.contains(e.target) && e.target !== hamburger) close();
+    });
+
+    /* Close on Escape key */
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape') close();
     });
   })();
 

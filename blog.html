@@ -424,22 +424,6 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   </footer>
 
 <script>
-/* ── Theme Toggle ── */
-const html = document.documentElement;
-const syncThemeUI = () => {
-  const n = html.getAttribute('data-theme') === 'night';
-  document.getElementById('icon-moon').style.display = n ? 'block' : 'none';
-  document.getElementById('icon-sun').style.display  = n ? 'none'  : 'block';
-  document.getElementById('themeLabel').textContent = n ? 'Night' : 'Day';
-};
-syncThemeUI();
-document.getElementById('themeBtn').addEventListener('click', () => {
-  const next = html.getAttribute('data-theme') === 'night' ? 'day' : 'night';
-  html.setAttribute('data-theme', next);
-  localStorage.setItem('ce-theme', next);
-  syncThemeUI();
-});
-/* OS theme listener removed — night is default */
 
 /* ── Mobile Nav ── */
 const hamburger = document.getElementById('navHamburger');
