@@ -921,28 +921,6 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   }, { threshold: 0.08 });
   document.querySelectorAll('.rv').forEach(el => ro.observe(el));
 
-  /* ── Mobile hamburger toggle ── */
-  const hamburger = document.getElementById('navHamburger');
-  const mobileNav = document.getElementById('mobileNav');
-  function openMobileNav(){
-    mobileNav.style.display='flex';
-    requestAnimationFrame(()=>mobileNav.classList.add('open'));
-    hamburger.setAttribute('aria-expanded','true');
-    mobileNav.setAttribute('aria-hidden','false');
-    document.body.style.overflow='hidden';
-  }
-  function closeMobileNav(){
-    mobileNav.classList.remove('open');
-    hamburger.setAttribute('aria-expanded','false');
-    mobileNav.setAttribute('aria-hidden','true');
-    document.body.style.overflow='';
-    setTimeout(()=>{mobileNav.style.display='none';},300);
-  }
-  hamburger.addEventListener('click',()=>{
-    hamburger.getAttribute('aria-expanded')==='true' ? closeMobileNav() : openMobileNav();
-  });
-  mobileNav.querySelectorAll('a').forEach(a=>a.addEventListener('click',closeMobileNav));
-  document.addEventListener('keydown',e=>{if(e.key==='Escape')closeMobileNav();});
   </script>
 
   

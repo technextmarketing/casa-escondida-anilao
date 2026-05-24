@@ -425,14 +425,6 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 <script>
 
-/* ── Mobile Nav ── */
-const hamburger = document.getElementById('navHamburger');
-const mobileNav = document.getElementById('mobileNav');
-hamburger.addEventListener('click', () => {
-  const open = mobileNav.classList.toggle('open');
-  mobileNav.style.display = open ? 'flex' : 'none';
-  hamburger.setAttribute('aria-expanded', open);
-});
 
 /* ── Navbar scroll: hide on down, show on up ── */
 (function(){

@@ -1147,28 +1147,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   }, { threshold: 0.08 });
   document.querySelectorAll('.rv').forEach(el => ro.observe(el));
 
-  /* ── Mobile hamburger ── */
-  const hamburger = document.getElementById('navHamburger');
-  const mobileNav = document.getElementById('mobileNav');
-  function openMobileNav(){
-    mobileNav.style.display='flex';
-    requestAnimationFrame(()=>mobileNav.classList.add('open'));
-    hamburger.setAttribute('aria-expanded','true');
-    mobileNav.setAttribute('aria-hidden','false');
-    document.body.style.overflow='hidden';
-  }
-  function closeMobileNav(){
-    mobileNav.classList.remove('open');
-    hamburger.setAttribute('aria-expanded','false');
-    mobileNav.setAttribute('aria-hidden','true');
-    document.body.style.overflow='';
-    setTimeout(()=>{mobileNav.style.display='none';},300);
-  }
-  hamburger.addEventListener('click',()=>{
-    hamburger.getAttribute('aria-expanded')==='true' ? closeMobileNav() : openMobileNav();
-  });
-  mobileNav.querySelectorAll('a').forEach(a=>a.addEventListener('click',closeMobileNav));
-  document.addEventListener('keydown',e=>{if(e.key==='Escape')closeMobileNav();});
+;
 
   /* ── Contact form ── */
   const cForm = document.getElementById('contactForm');
@@ -1196,53 +1175,6 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
   
 
-  <script>
-
-/* MOBILE-NAV-FIX-V2 */
-(function(){
-  /* Insert backdrop overlay into DOM */
-  var bkdrop = document.querySelector('.mob-nav-bkdrop');
-  if (!bkdrop) {
-    bkdrop = document.createElement('div');
-    bkdrop.className = 'mob-nav-bkdrop';
-    document.body.appendChild(bkdrop);
-  }
-
-  /* Clone hamburger button to strip ALL previously attached listeners */
-  var hbOld = document.getElementById('navHamburger');
-  if (!hbOld) return;
-  var hb = hbOld.cloneNode(true);
-  hbOld.parentNode.replaceChild(hb, hbOld);
-
-  var nav = document.getElementById('mobileNav');
-  if (!nav) return;
-
-  function openMenu() {
-    hb.setAttribute('aria-expanded', 'true');
-    hb.setAttribute('aria-label', 'Close menu');
-    nav.classList.add('open');
-    nav.setAttribute('aria-hidden', 'false');
-    bkdrop.classList.add('visible');
-    document.body.style.overflow = 'hidden';
-  }
-  function closeMenu() {
-    hb.setAttribute('aria-expanded', 'false');
-    hb.setAttribute('aria-label', 'Open menu');
-    nav.classList.remove('open');
-    nav.setAttribute('aria-hidden', 'true');
-    bkdrop.classList.remove('visible');
-    document.body.style.overflow = '';
-  }
-
-  hb.addEventListener('click', function () {
-    hb.getAttribute('aria-expanded') === 'true' ? closeMenu() : openMenu();
-  });
-  bkdrop.addEventListener('click', closeMenu);
-  document.addEventListener('keydown', function (e) { if (e.key === 'Escape') closeMenu(); });
-  nav.querySelectorAll('a').forEach(function (a) { a.addEventListener('click', closeMenu); });
-})();
-
-  </script>
 
   <script>
 </script>

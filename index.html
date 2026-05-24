@@ -1299,36 +1299,49 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     [data-theme="day"] .nav-hamburger span { background: #fff !important; }
     [data-theme="day"] #nav.scrolled .nav-hamburger span { background: var(--accent) !important; }
 
-    /* Mobile nav drawer */
+    /* Mobile nav — card dropdown */
     .mobile-nav {
-      display:none;
-      position:fixed; top:0; left:0; right:0; bottom:0; z-index:199;
-      background:var(--bg-primary);
-      flex-direction:column; align-items:center; justify-content:center;
-      gap:2rem;
-      opacity:0; transition:opacity 0.3s ease;
+      display:flex; flex-direction:column;
+      position:fixed; top:68px; left:0.75rem; right:0.75rem;
+      z-index:500; border-radius:16px;
+      padding:0.4rem 0 0.8rem;
+      visibility:hidden; opacity:0; transform:translateY(-10px) scale(0.98);
+      pointer-events:none;
+      transition:opacity 0.22s ease,transform 0.22s ease,visibility 0.22s;
     }
-    .mobile-nav.open { opacity:1; }
+    .mobile-nav.open {
+      visibility:visible; opacity:1; transform:translateY(0) scale(1);
+      pointer-events:auto;
+    }
+    [data-theme="night"] .mobile-nav {
+      background:rgba(10,20,36,0.97);
+      backdrop-filter:blur(12px); -webkit-backdrop-filter:blur(12px);
+      border:1px solid rgba(255,255,255,0.07);
+      box-shadow:0 8px 40px rgba(0,0,0,0.45);
+    }
+    [data-theme="day"] .mobile-nav {
+      background:rgba(255,255,255,0.98);
+      border:1px solid rgba(0,0,0,0.06);
+      box-shadow:0 8px 40px rgba(0,0,0,0.12);
+    }
     .mobile-nav a {
-      font-family:'Playfair Display',serif;
-      font-size:2rem; font-weight:300;
+      display:block; text-align:center;
+      padding:0.88rem 1.5rem;
+      font-family:'DM Sans',sans-serif; font-size:0.9rem; font-weight:500;
       color:var(--text-primary); text-decoration:none;
-      letter-spacing:0.02em;
-      transition:color 0.3s;
+      letter-spacing:0.03em;
+      border-bottom:1px solid var(--border);
+      transition:color 0.18s;
     }
+    .mobile-nav a:last-child { border-bottom:none; }
     .mobile-nav a:hover { color:var(--accent); }
     .mobile-nav-cta {
-      margin-top:1rem;
-      background:var(--accent); color:#fff !important;
-      padding:0.8rem 2.5rem; border-radius:2px;
-      font-family:'DM Sans',sans-serif !important;
-      font-size:0.85rem !important; letter-spacing:0.12em;
-      text-transform:uppercase;
+      margin:0.5rem 1rem 0 !important;
+      background:var(--accent) !important; color:#fff !important;
+      border-radius:8px !important; border-bottom:none !important;
+      font-weight:600 !important; text-align:center !important;
     }
-    .mobile-nav-divider {
-      width:40px; height:1px;
-      background:var(--border); margin:0.5rem 0;
-    }
+    .mobile-nav-divider { display:none; }
 
     @media(max-width:768px){
       .nav-links,.btn-nav-cta { display:none; }
@@ -1507,103 +1520,6 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   </style>
 
   <style>
-  /* ══════════════════════════════════════════
-     MOBILE NAV — SLIDE-IN DRAWER  (fix v2)
-     Overrides the full-screen overlay style
-  ══════════════════════════════════════════ */
-
-  /* Convert full-screen overlay → right-side slide-in drawer */
-  .mobile-nav {
-    display: flex !important;
-    position: fixed !important;
-    top: 0 !important; right: -100% !important;
-    left: auto !important; bottom: auto !important;
-    width: 280px !important; max-width: 88vw !important;
-    height: 100vh !important; height: 100dvh !important;
-    background: var(--bg-primary, #08111e) !important;
-    flex-direction: column !important;
-    align-items: flex-start !important;
-    justify-content: flex-start !important;
-    gap: 0 !important;
-    padding: 4.5rem 2rem 2.5rem !important;
-    z-index: 400 !important;
-    opacity: 1 !important;
-    transition: right 0.32s cubic-bezier(.4,0,.2,1) !important;
-    overflow-y: auto !important;
-    -webkit-overflow-scrolling: touch !important;
-    border-left: 1px solid var(--border, rgba(255,255,255,.08)) !important;
-    box-shadow: -10px 0 40px rgba(0,0,0,.45) !important;
-  }
-  .mobile-nav.open { right: 0 !important; }
-
-  /* Reduce link font: 2rem Playfair → clean 0.88rem DM Sans */
-  .mobile-nav a {
-    font-family: 'DM Sans', sans-serif !important;
-    font-size: 0.88rem !important;
-    font-weight: 500 !important;
-    letter-spacing: 0.13em !important;
-    text-transform: uppercase !important;
-    color: var(--text-secondary, rgba(255,255,255,.7)) !important;
-    text-decoration: none !important;
-    border-bottom: 1px solid var(--border, rgba(255,255,255,.07)) !important;
-    padding: 0.95rem 0 !important;
-    width: 100% !important;
-    min-height: 48px !important;
-    display: flex !important;
-    align-items: center !important;
-    transition: color .2s !important;
-    background: none !important;
-    border-radius: 0 !important;
-    margin-top: 0 !important;
-    box-shadow: none !important;
-  }
-  .mobile-nav a:hover,
-  .mobile-nav a.active { color: var(--accent, #4dc8e8) !important; }
-
-  /* Book Now CTA button */
-  .mobile-nav .mobile-nav-cta,
-  .mobile-nav a.mobile-nav-cta {
-    margin-top: 1.5rem !important;
-    background: var(--accent, #4dc8e8) !important;
-    color: #04080f !important;
-    padding: 0.9rem 1.5rem !important;
-    min-height: 48px !important;
-    border-radius: 4px !important;
-    font-family: 'DM Sans', sans-serif !important;
-    font-size: 0.8rem !important;
-    letter-spacing: 0.15em !important;
-    text-transform: uppercase !important;
-    display: flex !important;
-    align-items: center !important;
-    justify-content: center !important;
-    border-bottom: none !important;
-    width: 100% !important;
-    font-weight: 700 !important;
-  }
-  .mobile-nav .mobile-nav-cta:hover,
-  .mobile-nav a.mobile-nav-cta:hover { opacity: .88 !important; }
-
-  /* Day mode: white text on dark-blue CTA button */
-  [data-theme="day"] .mobile-nav .mobile-nav-cta,
-  [data-theme="day"] .mobile-nav a.mobile-nav-cta { color: #fff !important; }
-
-  /* Hide old thin line dividers */
-  .mobile-nav-divider { display: none !important; }
-
-  /* ── Backdrop overlay ── */
-  .mob-nav-bkdrop {
-    position: fixed; inset: 0;
-    background: rgba(4,8,15,.65);
-    backdrop-filter: blur(2px);
-    -webkit-backdrop-filter: blur(2px);
-    z-index: 399;
-    opacity: 0; pointer-events: none;
-    transition: opacity 0.32s ease;
-  }
-  .mob-nav-bkdrop.visible { opacity: 1; pointer-events: auto; }
-
-
-
   /* ── Mobile layout fixes (≤768px) ── */
   @media (max-width: 768px) {
     /* Smaller hero title */
@@ -3128,30 +3044,6 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     });
   }
 
-  /* ── Mobile hamburger toggle ── */
-  const hamburger = document.getElementById('navHamburger');
-  const mobileNav = document.getElementById('mobileNav');
-  function openMobileNav() {
-    mobileNav.style.display = 'flex';
-    requestAnimationFrame(() => mobileNav.classList.add('open'));
-    hamburger.setAttribute('aria-expanded', 'true');
-    mobileNav.setAttribute('aria-hidden', 'false');
-    document.body.style.overflow = 'hidden';
-  }
-  function closeMobileNav() {
-    mobileNav.classList.remove('open');
-    hamburger.setAttribute('aria-expanded', 'false');
-    mobileNav.setAttribute('aria-hidden', 'true');
-    document.body.style.overflow = '';
-    setTimeout(() => { mobileNav.style.display = 'none'; }, 300);
-  }
-  hamburger.addEventListener('click', () => {
-    hamburger.getAttribute('aria-expanded') === 'true' ? closeMobileNav() : openMobileNav();
-  });
-  // Close on any mobile nav link click
-  mobileNav.querySelectorAll('a').forEach(a => a.addEventListener('click', closeMobileNav));
-  // Close on Escape key
-  document.addEventListener('keydown', e => { if (e.key === 'Escape') closeMobileNav(); });
 
   /* ── Smooth scroll ── */
   document.querySelectorAll('a[href^="#"]').forEach(a=>{
@@ -3235,54 +3127,6 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       if (e.key === 'ArrowRight' && cur < items.length - 1) { cur++; update(); }
     });
   })();
-  </script>
-
-  <script>
-
-/* MOBILE-NAV-FIX-V2 */
-(function(){
-  /* Insert backdrop overlay into DOM */
-  var bkdrop = document.querySelector('.mob-nav-bkdrop');
-  if (!bkdrop) {
-    bkdrop = document.createElement('div');
-    bkdrop.className = 'mob-nav-bkdrop';
-    document.body.appendChild(bkdrop);
-  }
-
-  /* Clone hamburger button to strip ALL previously attached listeners */
-  var hbOld = document.getElementById('navHamburger');
-  if (!hbOld) return;
-  var hb = hbOld.cloneNode(true);
-  hbOld.parentNode.replaceChild(hb, hbOld);
-
-  var nav = document.getElementById('mobileNav');
-  if (!nav) return;
-
-  function openMenu() {
-    hb.setAttribute('aria-expanded', 'true');
-    hb.setAttribute('aria-label', 'Close menu');
-    nav.classList.add('open');
-    nav.setAttribute('aria-hidden', 'false');
-    bkdrop.classList.add('visible');
-    document.body.style.overflow = 'hidden';
-  }
-  function closeMenu() {
-    hb.setAttribute('aria-expanded', 'false');
-    hb.setAttribute('aria-label', 'Open menu');
-    nav.classList.remove('open');
-    nav.setAttribute('aria-hidden', 'true');
-    bkdrop.classList.remove('visible');
-    document.body.style.overflow = '';
-  }
-
-  hb.addEventListener('click', function () {
-    hb.getAttribute('aria-expanded') === 'true' ? closeMenu() : openMenu();
-  });
-  bkdrop.addEventListener('click', closeMenu);
-  document.addEventListener('keydown', function (e) { if (e.key === 'Escape') closeMenu(); });
-  nav.querySelectorAll('a').forEach(function (a) { a.addEventListener('click', closeMenu); });
-})();
-
   </script>
 
   <script>
