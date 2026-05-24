@@ -1614,6 +1614,16 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         max-height: 0 !important;
         opacity: 0 !important;
       }
+      /* Disable card tap animations on touch devices */
+      .svc-card { transition: none !important; cursor: default !important; }
+      .svc-card:hover, .svc-card:active {
+        transform: none !important;
+        box-shadow: none !important;
+        border-color: var(--border) !important;
+      }
+      .svc-card:hover .svc-photo img,
+      .svc-card:active .svc-photo img { transform: none !important; filter: brightness(.82) !important; }
+      .svc-card:hover::after, .svc-card:active::after { transform: scaleX(0) !important; }
     }
   
   /* ════════════════════════════════════════════
