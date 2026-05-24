@@ -104,4 +104,27 @@
     window.addEventListener('pageshow', function () { bar.classList.add('done'); });
   })();
 
+  /* ── Button click ripple (all CTA buttons across all pages) ── */
+  (function () {
+    var sel = [
+      '.btn-hero-primary','.btn-hero-ghost',
+      '.rm-btn-primary','.rm-btn-ghost',
+      '.dv-btn-primary','.dv-btn-ghost',
+      '.loc-btn-primary','.loc-btn-ghost',
+      '.cta-btn-main','.cta-btn-outline',
+      '.ig-cta-btn','.btn-book-sm'
+    ].join(',');
+    document.querySelectorAll(sel).forEach(function (btn) {
+      btn.addEventListener('click', function (e) {
+        var rect = this.getBoundingClientRect();
+        var size = Math.max(rect.width, rect.height);
+        var r = document.createElement('span');
+        r.className = 'btn-ripple';
+        r.style.cssText = 'width:'+size+'px;height:'+size+'px;left:'+(e.clientX-rect.left-size/2)+'px;top:'+(e.clientY-rect.top-size/2)+'px';
+        this.appendChild(r);
+        setTimeout(function(){ if(r.parentNode) r.parentNode.removeChild(r); }, 750);
+      });
+    });
+  })();
+
 })();

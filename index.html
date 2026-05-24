@@ -3130,23 +3130,6 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   </script>
 
   <script>
-/* ── Hero button ripple on click ── */
-(function(){
-  document.querySelectorAll('.btn-hero-primary,.btn-hero-ghost').forEach(function(btn){
-    btn.addEventListener('click', function(e){
-      var rect = this.getBoundingClientRect();
-      var size = Math.max(rect.width, rect.height);
-      var r = document.createElement('span');
-      r.className = 'btn-ripple';
-      r.style.cssText = 'width:'+size+'px;height:'+size+'px;left:'+(e.clientX-rect.left-size/2)+'px;top:'+(e.clientY-rect.top-size/2)+'px';
-      this.appendChild(r);
-      setTimeout(function(){ if(r.parentNode) r.parentNode.removeChild(r); }, 750);
-    });
-  });
-})();
-  </script>
-
-  <script>
   /* ── Page navigation progress bar ── */
   (function(){
     var bar=document.getElementById('pg-bar');
