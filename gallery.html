@@ -224,8 +224,10 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     .ig-overlay-label{color:#fff;font-size:.6rem;letter-spacing:.1em;text-transform:uppercase;display:flex;align-items:center;gap:.35rem;}
     .ig-cta-row{text-align:center;padding-top:1.5rem;}
     .ig-cta-row p{color:var(--text2);font-size:.9rem;margin-bottom:1.2rem;}
-    .ig-cta-btn{display:inline-flex;align-items:center;gap:.6rem;border:1px solid var(--border2);padding:.7rem 2rem;border-radius:2px;text-decoration:none;color:var(--text);font-size:.8rem;letter-spacing:.08em;text-transform:uppercase;transition:all .3s;}
+    .ig-cta-btn{display:inline-flex;align-items:center;gap:.6rem;border:1px solid var(--border2);padding:.7rem 2rem;border-radius:2px;text-decoration:none;color:var(--text);font-size:.8rem;letter-spacing:.08em;text-transform:uppercase;transition:all .3s;position:relative;overflow:hidden;}
+    .ig-cta-btn::before{content:'';position:absolute;inset:0;background:rgba(77,194,232,.07);transform:scaleX(0);transform-origin:left;transition:transform .32s ease;}
     .ig-cta-btn:hover{border-color:var(--accent);color:var(--accent);transform:translateY(-2px);}
+    .ig-cta-btn:hover::before{transform:scaleX(1);}
 
     /* ── VIDEO SECTION ── */
     .video-section{background:var(--bg);}
