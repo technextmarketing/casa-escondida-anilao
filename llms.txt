@@ -1,0 +1,44 @@
+# Casa Escondida Anilao Resort & Dive Center
+
+> Boutique ocean-front PADI 5-Star dive resort in Anilao, Mabini, Batangas, Philippines. 31 ocean-side rooms, full dive center, restaurant, pool, and private beach access on Batangas Bay. Free breakfast included for all guests.
+
+Casa Escondida Anilao is located in Brgy. Ligaya, Mabini, Batangas 4202 — at the heart of one of the world's premier macro-diving destinations. The resort offers a PADI 5-Star certified dive center with experienced divemasters and instructors, guided dives to 30+ named dive sites, and PADI certification courses from Open Water through Divemaster. Accommodation ranges from standard ocean-view rooms to spacious sea-view suites with hot tub. The resort is approximately 140 km south of Manila (2–3 hours by private car or van).
+
+## Resort
+
+- [Homepage](https://www.casaescondida-anilao.com/): Full resort overview — rooms, diving, dining, booking, and guest reviews.
+- [Rooms & Suites](https://www.casaescondida-anilao.com/rooms.html): 31 ocean-side rooms — Standard Double (18 sqm), Deluxe Double/Twin (40 sqm, sea view), Suite with Sea View (50 sqm, hot tub). Breakfast included.
+- [Location & Directions](https://www.casaescondida-anilao.com/location.html): How to get to Casa Escondida from Manila, NAIA, and Metro Manila — routes, fares, transport options, and resort contact details.
+- [Gallery](https://www.casaescondida-anilao.com/gallery.html): Photos and videos of diving, marine life, resort facilities, and Batangas Bay.
+
+## Dive Center
+
+- [Dive Center & Packages](https://www.casaescondida-anilao.com/dive.html): PADI 5-Star dive center — fun dives, night dives, PADI Open Water to Divemaster courses, nitrox fills, full equipment rental, camera rinse station, private jetty.
+
+## Travel Guides & Blog
+
+- [Blog Index](https://www.casaescondida-anilao.com/blog.html): All articles — dive guides, marine life spotting, travel tips, resort updates.
+- [Manila to Anilao Transfer Guide](https://www.casaescondida-anilao.com/blog/manila-to-anilao-transfer-guide.html): Complete 2026 guide — bus, private van, and driving routes with fares and travel times.
+- [Best Dive Sites in Anilao](https://www.casaescondida-anilao.com/blog/best-dive-sites-anilao.html): Top macro dive sites including Sombrero, Arthur's Rock, Kirby's Rock, and Beatrice Rock.
+- [Kirby's Rock Anilao](https://www.casaescondida-anilao.com/blog/kirbys-rock-anilao.html): Dive site guide to Kirby's Rock — depth, marine life, and conditions.
+- [Best Time to Dive Anilao](https://www.casaescondida-anilao.com/blog/best-time-dive-anilao.html): Seasonal diving guide — visibility, water temperature, and marine life highlights by month.
+- [PADI Open Water Course at Casa Escondida](https://www.casaescondida-anilao.com/blog/padi-open-water-course-casa-escondida.html): What to expect from a PADI Open Water certification at Casa Escondida.
+- [Night Diving in Anilao](https://www.casaescondida-anilao.com/blog/night-diving-anilao.html): Guide to night diving — what to see, safety tips, and best sites.
+- [Nudibranchs of Anilao](https://www.casaescondida-anilao.com/blog/nudibranchs-anilao.html): Species guide to nudibranch spotting in Anilao's reefs.
+- [Frogfish in Anilao](https://www.casaescondida-anilao.com/blog/frogfish-anilao.html): How to spot frogfish — camouflage, habitats, and photography tips.
+- [Pygmy Seahorses in Anilao](https://www.casaescondida-anilao.com/blog/pygmy-seahorses-anilao.html): Finding pygmy seahorses on Anilao's sea fans.
+- [Whale Sharks in Batangas](https://www.casaescondida-anilao.com/blog/whale-sharks-batangas.html): Whale shark encounters near Batangas and how to dive with them responsibly.
+- [Macro Photography Settings for Anilao](https://www.casaescondida-anilao.com/blog/macro-photography-settings-anilao.html): Camera settings and tips for underwater macro photography in Anilao.
+- [Underwater Photography Tips](https://www.casaescondida-anilao.com/blog/underwater-photography-tips-anilao.html): Beginner and intermediate tips for shooting underwater at Anilao.
+- [What to Pack for Batangas Diving](https://www.casaescondida-anilao.com/blog/what-to-pack-batangas-diving.html): Packing list for a dive trip to Anilao, Batangas.
+- [Anilao Dive Trip Cost](https://www.casaescondida-anilao.com/blog/anilao-dive-trip-cost.html): Breakdown of costs for a dive trip to Anilao — accommodation, dives, transport.
+- [Island BBQ at Casa Escondida](https://www.casaescondida-anilao.com/blog/island-bbq-casa-escondida.html): The resort's legendary island BBQ experience on Batangas Bay.
+- [A Full Day at Casa Escondida](https://www.casaescondida-anilao.com/blog/full-day-casa-escondida.html): A day-in-the-life itinerary at the resort — morning dives to sunset dining.
+- [Protecting the Coral Triangle](https://www.casaescondida-anilao.com/blog/protecting-coral-triangle.html): Casa Escondida's marine conservation efforts in the Coral Triangle.
+- [Batangas Coral Restoration 2025](https://www.casaescondida-anilao.com/blog/batangas-coral-restoration-2025.html): Coral restoration initiatives in Batangas Bay.
+- [Anilao Underwater Festival 2026](https://www.casaescondida-anilao.com/blog/anilao-underwater-festival-2026.html): Coverage of the annual Anilao Underwater Festival.
+- [New Dive Deck & Equipment 2026](https://www.casaescondida-anilao.com/blog/new-dive-deck-equipment-2026.html): Resort updates — new dive deck and equipment additions.
+
+## Optional
+
+- [Full content (llms-full.txt)](https://www.casaescondida-anilao.com/llms-full.txt)
